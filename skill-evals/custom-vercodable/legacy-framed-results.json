@@ -1,0 +1,2043 @@
+{
+  "skill_name": "custom-vercodable",
+  "format_contract": "Historical per-node framed format at commit a8f03e6, not the current global-pass format.",
+  "iterations": [
+    {
+      "iteration": "iteration-1",
+      "metadata": {
+        "skill_name": "custom-vercodable",
+        "skill_path": "/workspace/qbradley/vercode/target/skill-evals/custom-vercodable",
+        "executor_model": "gpt-6-astra",
+        "analyzer_model": "gpt-6-astra",
+        "timestamp": "2026-11-04T20:36:31Z",
+        "evals_run": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "runs_per_configuration": 1,
+        "skill_files_sha256": {
+          "SKILL.md": "77aced657a2708cb2d27b1acb7bb0bf3349623152d1da96f6b93c628353d6a59",
+          "references/implementation.md": "521e89e725202b7d4225adc991fad564ce812c453bb8dcfda21e0a2b4261849c",
+          "references/type-guards.md": "9ed95a2f4bfd21673674f795b1e0494b7cccd6b83989ede9d92baef1e322fce8",
+          "references/wire-contract.md": "657a625085bb420375aff5bc5db607070b1cde7c724931291d610701bdbf04f8"
+        },
+        "resource_metrics": "Unavailable: token counts and precise executor timing were not reported."
+      },
+      "runs": [
+        {
+          "case": "create",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 2,
+            "total": 21,
+            "pass_rate": 0.9047619047619048
+          },
+          "expectations": [
+            {
+              "text": "golden_bytes_all_versions_and_options",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writer_to_new_reader_defaults",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_to_independent_old_reader_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_unknown_tail_preserves_sibling_alignment",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "root_unknown_tail_and_following_sentinel",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_frames_cannot_escape_parent",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_versioned_string_is_not_defaulted",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_bool_utf8_and_vector_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_payloads_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "max_version_and_reader_version_gates",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_array_mutation",
+              "passed": true,
+              "evidence": "logs/guard-array.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": false,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": false,
+              "evidence": "logs/guard-option.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "35bd86ba76401a785a5085cc6c1af0d1f9624debb73a10b9dbf49407e0ebedd5"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-create/with_skill/run-1"
+        },
+        {
+          "case": "create",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 2,
+            "total": 21,
+            "pass_rate": 0.9047619047619048
+          },
+          "expectations": [
+            {
+              "text": "golden_bytes_all_versions_and_options",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writer_to_new_reader_defaults",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_to_independent_old_reader_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_unknown_tail_preserves_sibling_alignment",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "root_unknown_tail_and_following_sentinel",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_frames_cannot_escape_parent",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_versioned_string_is_not_defaulted",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_bool_utf8_and_vector_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_payloads_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "max_version_and_reader_version_gates",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_array_mutation",
+              "passed": true,
+              "evidence": "logs/guard-array.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": false,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": false,
+              "evidence": "logs/guard-option.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "09bbc165e8d3c92ae49d0ef1cbd14b681ae2d52c78d1fc6ecdfeb170d4d1609b",
+            "src/tests.rs": "f6b469ca592db2ce8f16b7c1c8ba067d99b769c5b9a178aeca4ebd5d686eaebb"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-create/without_skill/run-1"
+        },
+        {
+          "case": "decisions",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 27,
+            "failed": 0,
+            "total": 27,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "Identifies width change, slot deletion, and tag reuse as incompatible.",
+              "passed": true,
+              "evidence": "answers.json id 4 names all three and explains shifted bytes or changed meaning."
+            },
+            {
+              "text": "Does not claim arbitrary schema edits can preserve both directions.",
+              "passed": true,
+              "evidence": "id 4: arbitrary u64 values cannot retain their meaning for u32-only readers."
+            },
+            {
+              "text": "Requests historical evidence and explicit migration decisions before implementation.",
+              "passed": true,
+              "evidence": "id 4 requires released source, independent fixtures, retained-slot and overflow policies."
+            },
+            {
+              "text": "Identifies recursive hashing and opaque foreign definition as separate blockers.",
+              "passed": true,
+              "evidence": "id 5 separately identifies cyclic constant evaluation and vendor::Handle opacity."
+            },
+            {
+              "text": "Does not invent a transitive guarantee from TypeId, size_of, or a manual constant.",
+              "passed": true,
+              "evidence": "id 5 rejects a nominal hash, manual constant, and copied mirror."
+            },
+            {
+              "text": "Separates safe delegation from inability to meet the complete guard requirement.",
+              "passed": true,
+              "evidence": "id 5 explicitly delegates Handle's codec while reporting the guard blocker."
+            },
+            {
+              "text": "Distinguishes per-instantiation guards from a universal generic guarantee.",
+              "passed": true,
+              "evidence": "id 6 limits a concrete literal to the specified instantiation."
+            },
+            {
+              "text": "Explains when Rust evaluates the proposed assertion.",
+              "passed": true,
+              "evidence": "id 6 distinguishes lazy associated constants from unconditional module-level concrete assertions."
+            },
+            {
+              "text": "Requests a supported concrete-root set or reports the unmet guarantee.",
+              "passed": true,
+              "evidence": "id 6 requests concrete roots or downstream assertions, otherwise declines the guarantee."
+            },
+            {
+              "text": "Preserves write_option, read_option, and size_option_version specialization.",
+              "passed": true,
+              "evidence": "id 7 explicitly names all three option hooks and their encodings."
+            },
+            {
+              "text": "Tests invalid option tags and zero as None rather than a default inner value.",
+              "passed": true,
+              "evidence": "id 7 specifies every bool tag, nonzero boundaries, and zero=None."
+            },
+            {
+              "text": "Adds no unnecessary Copy or Clone bound.",
+              "passed": true,
+              "evidence": "id 7 proposes transparent forwarding; no Copy or Clone bound is introduced."
+            },
+            {
+              "text": "Explains why Copy and repr(C) do not establish padding-free wire layout.",
+              "passed": true,
+              "evidence": "id 8 identifies padding, host order, and alignment separately."
+            },
+            {
+              "text": "Retains bool and char validity checks.",
+              "passed": true,
+              "evidence": "id 8 requires 0/1 and Unicode scalar validation before construction."
+            },
+            {
+              "text": "Preserves little-endian field encoding and the frame header.",
+              "passed": true,
+              "evidence": "id 8 retains the 17-byte framed fieldwise representation."
+            },
+            {
+              "text": "Identifies attributes, discriminant expressions, and defaults as outside structural hash coverage.",
+              "passed": true,
+              "evidence": "id 9 explicitly lists all three and comments/method bodies."
+            },
+            {
+              "text": "Separates source-position Vercode tags from integer enum codes.",
+              "passed": true,
+              "evidence": "id 9 distinguishes positional u16 tags from integer-enum explicit codes."
+            },
+            {
+              "text": "Requires wire/default tests and relevant metadata assertions.",
+              "passed": true,
+              "evidence": "id 9 calls for explicit code assertions and historical default/version tests."
+            },
+            {
+              "text": "Preserves the unframed one-byte format.",
+              "passed": true,
+              "evidence": "id 10 rejects a length prefix and positional u16 tag."
+            },
+            {
+              "text": "Keeps codes 7 and 255 stable and allocates 13 without reuse.",
+              "passed": true,
+              "evidence": "id 10 explicitly freezes 7/255 and assigns unused 13."
+            },
+            {
+              "text": "Defaults unknown complete codes but rejects empty input.",
+              "passed": true,
+              "evidence": "id 10 consumes one unknown byte as default and rejects empty input."
+            },
+            {
+              "text": "Treats a unit vector count as valid without payload or element iteration.",
+              "passed": true,
+              "evidence": "id 11 describes a u32 count without a payload or element loop."
+            },
+            {
+              "text": "Does not preallocate an untrusted variable-element count without limits.",
+              "passed": true,
+              "evidence": "id 11 retains the 4096-element/1 MiB initial reservation cap."
+            },
+            {
+              "text": "Does not invent byte-presence information for zero-sized batches.",
+              "passed": true,
+              "evidence": "id 11 uses offset < frame_length and preserves observable default call order."
+            },
+            {
+              "text": "Uses the historical wire plan instead of regenerating order from current source.",
+              "passed": true,
+              "evidence": "id 12 preserves within-batch order independently of Rust declarations."
+            },
+            {
+              "text": "Uses introduction versions greater than the released whole-graph maximum.",
+              "passed": true,
+              "evidence": "id 12 permits v10 only if the released graph maximum is 9."
+            },
+            {
+              "text": "Tests below, at, and above version gaps with independent historical bytes.",
+              "passed": true,
+              "evidence": "id 12 requests frozen historical implementations plus gaps, boundaries, and versions above MAX_VERSION."
+            }
+          ],
+          "source_sha256": {
+            "outputs/answers.json": "900159abbbe95a448b698fc68da7216bcb497913ed33b5b252821ef93d7b8a98"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-decisions/with_skill/run-1"
+        },
+        {
+          "case": "decisions",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 25,
+            "failed": 2,
+            "total": 27,
+            "pass_rate": 0.9259259259259259
+          },
+          "expectations": [
+            {
+              "text": "Identifies width change, slot deletion, and tag reuse as incompatible.",
+              "passed": true,
+              "evidence": "answers.json id 4 identifies shifted bytes, required deleted bytes, and changed tag meaning."
+            },
+            {
+              "text": "Does not claim arbitrary schema edits can preserve both directions.",
+              "passed": true,
+              "evidence": "id 4 requires a valid u32 projection or negotiated/separate format."
+            },
+            {
+              "text": "Requests historical evidence and explicit migration decisions before implementation.",
+              "passed": true,
+              "evidence": "id 4 requires released code/specification and independent baseline fixtures."
+            },
+            {
+              "text": "Identifies recursive hashing and opaque foreign definition as separate blockers.",
+              "passed": true,
+              "evidence": "id 5 separately identifies a constant-evaluation cycle and opaque Handle."
+            },
+            {
+              "text": "Does not invent a transitive guarantee from TypeId, size_of, or a manual constant.",
+              "passed": true,
+              "evidence": "id 5 rejects name/size/wrapper/manual constants as complete guards."
+            },
+            {
+              "text": "Separates safe delegation from inability to meet the complete guard requirement.",
+              "passed": true,
+              "evidence": "id 5 retains the vendor compatibility boundary but explicitly denies complete graph coverage."
+            },
+            {
+              "text": "Distinguishes per-instantiation guards from a universal generic guarantee.",
+              "passed": true,
+              "evidence": "id 6 says one literal cannot represent all T and N instances."
+            },
+            {
+              "text": "Explains when Rust evaluates the proposed assertion.",
+              "passed": true,
+              "evidence": "id 6 explains lazy associated assertions and concrete module-level evaluation."
+            },
+            {
+              "text": "Requests a supported concrete-root set or reports the unmet guarantee.",
+              "passed": true,
+              "evidence": "id 6 requests supported concrete instances or downstream assertions."
+            },
+            {
+              "text": "Preserves write_option, read_option, and size_option_version specialization.",
+              "passed": true,
+              "evidence": "id 7 forwards all six methods, explicitly including option methods."
+            },
+            {
+              "text": "Tests invalid option tags and zero as None rather than a default inner value.",
+              "passed": true,
+              "evidence": "id 7 specifies malformed option input and zero=None."
+            },
+            {
+              "text": "Adds no unnecessary Copy or Clone bound.",
+              "passed": true,
+              "evidence": "id 7 proposes forwarding without introducing a Copy or Clone bound."
+            },
+            {
+              "text": "Explains why Copy and repr(C) do not establish padding-free wire layout.",
+              "passed": true,
+              "evidence": "id 8 describes uninitialized padding, target layout, and endian differences."
+            },
+            {
+              "text": "Retains bool and char validity checks.",
+              "passed": true,
+              "evidence": "id 8 requires invalid boolean and Unicode scalar rejection."
+            },
+            {
+              "text": "Preserves little-endian field encoding and the frame header.",
+              "passed": true,
+              "evidence": "id 8 specifies the 17-byte derived frame and retained extension behavior."
+            },
+            {
+              "text": "Identifies attributes, discriminant expressions, and defaults as outside structural hash coverage.",
+              "passed": true,
+              "evidence": "id 9 explicitly lists these omissions."
+            },
+            {
+              "text": "Separates source-position Vercode tags from integer enum codes.",
+              "passed": true,
+              "evidence": "id 9 distinguishes positional u16 tags and conversion codes."
+            },
+            {
+              "text": "Requires wire/default tests and relevant metadata assertions.",
+              "passed": false,
+              "evidence": "id 9 requests behavioral tests but no separate assertion for discriminant/code metadata."
+            },
+            {
+              "text": "Preserves the unframed one-byte format.",
+              "passed": true,
+              "evidence": "id 10 rejects the framed normal enum format."
+            },
+            {
+              "text": "Keeps codes 7 and 255 stable and allocates 13 without reuse.",
+              "passed": true,
+              "evidence": "id 10 explicitly retains 7/255 and newly assigns 13."
+            },
+            {
+              "text": "Defaults unknown complete codes but rejects empty input.",
+              "passed": true,
+              "evidence": "id 10 defaults failed conversions and rejects truncated input."
+            },
+            {
+              "text": "Treats a unit vector count as valid without payload or element iteration.",
+              "passed": true,
+              "evidence": "id 11 describes four-byte large counts as valid without payload."
+            },
+            {
+              "text": "Does not preallocate an untrusted variable-element count without limits.",
+              "passed": true,
+              "evidence": "id 11 retains the 4096-element/1 MiB reservation cap."
+            },
+            {
+              "text": "Does not invent byte-presence information for zero-sized batches.",
+              "passed": true,
+              "evidence": "id 11 preserves version/frame-length conditions and one default call per absent field."
+            },
+            {
+              "text": "Uses the historical wire plan instead of regenerating order from current source.",
+              "passed": true,
+              "evidence": "id 12 retains released within-batch order despite source reorder."
+            },
+            {
+              "text": "Uses introduction versions greater than the released whole-graph maximum.",
+              "passed": true,
+              "evidence": "id 12 allocates above the relevant nested graph maximum."
+            },
+            {
+              "text": "Tests below, at, and above version gaps with independent historical bytes.",
+              "passed": false,
+              "evidence": "id 12 mentions old fixtures and cross-version tests, but does not specify gap boundaries or above-maximum requests."
+            }
+          ],
+          "source_sha256": {
+            "outputs/answers.json": "194349ad82aa8158d1bdd3443188f594bd2561541833fd2d88b2508ca03bf70c"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-decisions/without_skill/run-1"
+        },
+        {
+          "case": "enums",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 0,
+            "total": 19,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "enum_golden_bytes_and_variant_version_semantics",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_fallback_consumes_validated_full_frame",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "strict_unknown_returns_error",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_unknown_frame_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_known_payload_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_variant_batch_defaults_and_requested_version_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frame_unknown_mode_preserves_following_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "zerocopy_block_keeps_little_endian_framing",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_nested_and_root_tails_are_consumed",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_frame_cannot_escape_root",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_variant_mutation",
+              "passed": true,
+              "evidence": "logs/guard-variant.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "f35a89f85c570f5743ee8445eb811994823abd0beb5e5084b3d294987aabee7c"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-enums/with_skill/run-1"
+        },
+        {
+          "case": "enums",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 0,
+            "total": 19,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "enum_golden_bytes_and_variant_version_semantics",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_fallback_consumes_validated_full_frame",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "strict_unknown_returns_error",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_unknown_frame_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_known_payload_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_variant_batch_defaults_and_requested_version_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frame_unknown_mode_preserves_following_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "zerocopy_block_keeps_little_endian_framing",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_nested_and_root_tails_are_consumed",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_frame_cannot_escape_root",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_variant_mutation",
+              "passed": true,
+              "evidence": "logs/guard-variant.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "e5f9bee3bcd41c667e827d0146aa1c613033b51843f4e36d57a7c2fd6eebd394"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-enums/without_skill/run-1"
+        },
+        {
+          "case": "update",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 20,
+            "failed": 0,
+            "total": 20,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "frozen_v0_v1_bytes_are_unchanged",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writers_default_nested_and_root_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_preserves_frozen_old_readers_and_sentinels",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_bytes_match_independent_derive_for_all_versions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_child_growth_keeps_marker_and_values_aligned",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "vector_elements_consume_complete_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_child_batch_cannot_default_or_read_sibling",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_root_lengths_and_trailing_data",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_bool_string_and_collection_lengths",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_and_empty_payload",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "historical_implementation_unchanged",
+              "passed": true,
+              "evidence": "Byte-for-byte comparison with evals/fixtures/update.rs."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "fec59357628323f45319b7462312082c7c8cea229b295facc2eb443f922234fd"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-update/with_skill/run-1"
+        },
+        {
+          "case": "update",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 1,
+            "total": 20,
+            "pass_rate": 0.95
+          },
+          "expectations": [
+            {
+              "text": "frozen_v0_v1_bytes_are_unchanged",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writers_default_nested_and_root_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_preserves_frozen_old_readers_and_sentinels",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_bytes_match_independent_derive_for_all_versions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_child_growth_keeps_marker_and_values_aligned",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "vector_elements_consume_complete_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_child_batch_cannot_default_or_read_sibling",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_root_lengths_and_trailing_data",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_bool_string_and_collection_lengths",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_and_empty_payload",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "historical_implementation_unchanged",
+              "passed": true,
+              "evidence": "Byte-for-byte comparison with evals/fixtures/update.rs."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": false,
+              "evidence": "logs/guard-container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "d52f824b606ae2daf5f96e9b227827beb0d88c0eca2fcafb502f02c590ce1a70"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-1/eval-update/without_skill/run-1"
+        }
+      ]
+    },
+    {
+      "iteration": "iteration-2",
+      "metadata": {
+        "skill_name": "custom-vercodable",
+        "skill_path": "/workspace/qbradley/vercode/target/skill-evals/custom-vercodable-v2",
+        "executor_model": "gpt-6-astra",
+        "analyzer_model": "gpt-6-astra",
+        "timestamp": "2026-11-04T20:36:31Z",
+        "evals_run": [
+          1,
+          2,
+          3
+        ],
+        "runs_per_configuration": 1,
+        "skill_files_sha256": {
+          "SKILL.md": "9dae078ff03d8ab15327890527105daad3dc15093338ce3c3586657f184193d6",
+          "references/implementation.md": "521e89e725202b7d4225adc991fad564ce812c453bb8dcfda21e0a2b4261849c",
+          "references/type-guards.md": "d37cb95cde4bc3645499e9349c80755b561bd2173563ce8f94b179eef4f158df",
+          "references/wire-contract.md": "657a625085bb420375aff5bc5db607070b1cde7c724931291d610701bdbf04f8"
+        },
+        "resource_metrics": "Unavailable: token counts and precise executor timing were not reported."
+      },
+      "runs": [
+        {
+          "case": "create",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 21,
+            "failed": 0,
+            "total": 21,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "golden_bytes_all_versions_and_options",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writer_to_new_reader_defaults",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_to_independent_old_reader_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_unknown_tail_preserves_sibling_alignment",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "root_unknown_tail_and_following_sentinel",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_frames_cannot_escape_parent",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_versioned_string_is_not_defaulted",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_bool_utf8_and_vector_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_payloads_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "max_version_and_reader_version_gates",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_array_mutation",
+              "passed": true,
+              "evidence": "logs/guard-array.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": true,
+              "evidence": "logs/guard-option.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "4caae4662eba1ecccb74d073c5466547c716ae51828484791975de545bb92163"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-2/eval-create/with_skill/run-1",
+          "performance": {
+            "case": "create",
+            "methods": [
+              "write",
+              "read_owned",
+              "size"
+            ],
+            "statistics": [
+              "min",
+              "median",
+              "max"
+            ],
+            "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1",
+            "workloads": [
+              {
+                "elements": 0,
+                "iterations": 200000,
+                "samples": 7,
+                "custom_ns": [
+                  [
+                    7.448575,
+                    7.565075,
+                    7.640575
+                  ],
+                  [
+                    27.172275,
+                    27.64228,
+                    28.62479
+                  ],
+                  [
+                    1.718515,
+                    1.71902,
+                    2.00502
+                  ]
+                ],
+                "derive_ns": [
+                  [
+                    9.04609,
+                    9.5656,
+                    9.738595
+                  ],
+                  [
+                    36.981875,
+                    37.76338,
+                    38.823895
+                  ],
+                  [
+                    1.718515,
+                    1.71902,
+                    1.81102
+                  ]
+                ]
+              },
+              {
+                "elements": 8,
+                "iterations": 200000,
+                "samples": 7,
+                "custom_ns": [
+                  [
+                    7.65408,
+                    7.93008,
+                    8.04008
+                  ],
+                  [
+                    38.54839,
+                    40.293405,
+                    43.06594
+                  ],
+                  [
+                    1.718515,
+                    1.72152,
+                    1.742515
+                  ]
+                ],
+                "derive_ns": [
+                  [
+                    8.605085,
+                    9.150095,
+                    9.411095
+                  ],
+                  [
+                    48.925495,
+                    49.4785,
+                    50.829015
+                  ],
+                  [
+                    1.718515,
+                    1.719015,
+                    1.71902
+                  ]
+                ]
+              },
+              {
+                "elements": 4096,
+                "iterations": 10000,
+                "samples": 7,
+                "custom_ns": [
+                  [
+                    124.0113,
+                    124.5413,
+                    125.6912
+                  ],
+                  [
+                    158.9316,
+                    160.5216,
+                    161.4316
+                  ],
+                  [
+                    1.72,
+                    1.73,
+                    2.01
+                  ]
+                ],
+                "derive_ns": [
+                  [
+                    125.4812,
+                    129.1513,
+                    131.2113
+                  ],
+                  [
+                    173.4717,
+                    174.6118,
+                    176.2618
+                  ],
+                  [
+                    1.72,
+                    1.73,
+                    1.73
+                  ]
+                ]
+              }
+            ],
+            "limitations": [
+              "Exploratory wall-clock microbenchmark on a shared host, not a pass/fail threshold.",
+              "No allocation counts, code-size measurement, cross-target execution, or confidence intervals.",
+              "Current-version values only; read includes owned allocation, write reuses a buffer."
+            ]
+          }
+        },
+        {
+          "case": "create",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 2,
+            "total": 21,
+            "pass_rate": 0.9047619047619048
+          },
+          "expectations": [
+            {
+              "text": "golden_bytes_all_versions_and_options",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writer_to_new_reader_defaults",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_to_independent_old_reader_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_unknown_tail_preserves_sibling_alignment",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "root_unknown_tail_and_following_sentinel",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_frames_cannot_escape_parent",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_versioned_string_is_not_defaulted",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_bool_utf8_and_vector_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_payloads_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "max_version_and_reader_version_gates",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_array_mutation",
+              "passed": true,
+              "evidence": "logs/guard-array.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": false,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": false,
+              "evidence": "logs/guard-option.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "6b9a0d0881b43d1f7a5333dbf2887b6393e7894c3f50baf245cb7347248a28ce",
+            "src/tests.rs": "7243486b3d98d118370ce9697c21db6eeb3cd56d0d290e82c3d4979d031f8567"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-2/eval-create/without_skill/run-1",
+          "performance": {
+            "case": "create",
+            "methods": [
+              "write",
+              "read_owned",
+              "size"
+            ],
+            "statistics": [
+              "min",
+              "median",
+              "max"
+            ],
+            "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1",
+            "workloads": [
+              {
+                "elements": 0,
+                "iterations": 200000,
+                "samples": 7,
+                "custom_ns": [
+                  [
+                    8.67059,
+                    9.204595,
+                    10.1526
+                  ],
+                  [
+                    32.61283,
+                    32.68183,
+                    33.27534
+                  ],
+                  [
+                    2.00502,
+                    2.00502,
+                    2.01102
+                  ]
+                ],
+                "derive_ns": [
+                  [
+                    9.27359,
+                    9.348095,
+                    9.384595
+                  ],
+                  [
+                    37.23338,
+                    37.57638,
+                    38.54439
+                  ],
+                  [
+                    1.662015,
+                    1.66302,
+                    1.758015
+                  ]
+                ]
+              },
+              {
+                "elements": 8,
+                "iterations": 200000,
+                "samples": 7,
+                "custom_ns": [
+                  [
+                    8.53259,
+                    9.313095,
+                    9.4771
+                  ],
+                  [
+                    42.775435,
+                    43.38494,
+                    45.962465
+                  ],
+                  [
+                    2.00502,
+                    2.00502,
+                    2.10502
+                  ]
+                ],
+                "derive_ns": [
+                  [
+                    9.00909,
+                    9.084095,
+                    9.106095
+                  ],
+                  [
+                    46.923975,
+                    47.704485,
+                    48.26499
+                  ],
+                  [
+                    1.662515,
+                    1.663015,
+                    1.718515
+                  ]
+                ]
+              },
+              {
+                "elements": 4096,
+                "iterations": 10000,
+                "samples": 7,
+                "custom_ns": [
+                  [
+                    124.2013,
+                    124.3912,
+                    129.2913
+                  ],
+                  [
+                    168.2417,
+                    170.9317,
+                    171.7917
+                  ],
+                  [
+                    2.01,
+                    2.01,
+                    2.0101
+                  ]
+                ],
+                "derive_ns": [
+                  [
+                    128.0213,
+                    128.8713,
+                    130.9313
+                  ],
+                  [
+                    176.8818,
+                    178.9218,
+                    181.1218
+                  ],
+                  [
+                    1.66,
+                    1.66,
+                    1.6801
+                  ]
+                ]
+              }
+            ],
+            "limitations": [
+              "Exploratory wall-clock microbenchmark on a shared host, not a pass/fail threshold.",
+              "No allocation counts, code-size measurement, cross-target execution, or confidence intervals.",
+              "Current-version values only; read includes owned allocation, write reuses a buffer."
+            ]
+          }
+        },
+        {
+          "case": "enums",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 0,
+            "total": 19,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "enum_golden_bytes_and_variant_version_semantics",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_fallback_consumes_validated_full_frame",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "strict_unknown_returns_error",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_unknown_frame_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_known_payload_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_variant_batch_defaults_and_requested_version_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frame_unknown_mode_preserves_following_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "zerocopy_block_keeps_little_endian_framing",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_nested_and_root_tails_are_consumed",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_frame_cannot_escape_root",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_variant_mutation",
+              "passed": true,
+              "evidence": "logs/guard-variant.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "3994a2294af7aeec16cc7d5ea63bd77cf7892163e9a33e0988cab2ccb9c316ff"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-2/eval-enums/with_skill/run-1"
+        },
+        {
+          "case": "enums",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 0,
+            "total": 19,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "enum_golden_bytes_and_variant_version_semantics",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_fallback_consumes_validated_full_frame",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "strict_unknown_returns_error",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_unknown_frame_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_known_payload_does_not_fallback",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_variant_batch_defaults_and_requested_version_skips",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frame_unknown_mode_preserves_following_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "zerocopy_block_keeps_little_endian_framing",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_nested_and_root_tails_are_consumed",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_input_and_output_truncation",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "nested_frame_cannot_escape_root",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_variant_mutation",
+              "passed": true,
+              "evidence": "logs/guard-variant.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "0b539f51cad2b9f14fec700c794fc245adc09db276a7b8ab06e10ff662aa22bb"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-2/eval-enums/without_skill/run-1"
+        },
+        {
+          "case": "update",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 20,
+            "failed": 0,
+            "total": 20,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "frozen_v0_v1_bytes_are_unchanged",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writers_default_nested_and_root_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_preserves_frozen_old_readers_and_sentinels",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_bytes_match_independent_derive_for_all_versions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_child_growth_keeps_marker_and_values_aligned",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "vector_elements_consume_complete_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_child_batch_cannot_default_or_read_sibling",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_root_lengths_and_trailing_data",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_bool_string_and_collection_lengths",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_and_empty_payload",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "historical_implementation_unchanged",
+              "passed": true,
+              "evidence": "Byte-for-byte comparison with evals/fixtures/update.rs."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "1770fcf0dfa0b6153eea436bca453d1acb2c727e153114f576c21d9c87ace12e"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-2/eval-update/with_skill/run-1"
+        },
+        {
+          "case": "update",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 19,
+            "failed": 1,
+            "total": 20,
+            "pass_rate": 0.95
+          },
+          "expectations": [
+            {
+              "text": "frozen_v0_v1_bytes_are_unchanged",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_old_writers_default_nested_and_root_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_writer_preserves_frozen_old_readers_and_sentinels",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_bytes_match_independent_derive_for_all_versions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_child_growth_keeps_marker_and_values_aligned",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "vector_elements_consume_complete_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_child_batch_cannot_default_or_read_sibling",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_root_lengths_and_trailing_data",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_bool_string_and_collection_lengths",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_and_empty_payload",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec.log: requires_codec applied to the actual public child type."
+            },
+            {
+              "text": "historical_implementation_unchanged",
+              "passed": true,
+              "evidence": "Byte-for-byte comparison with evals/fixtures/update.rs."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": false,
+              "evidence": "logs/guard-container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "0f1924136784c7b1f406f31bb7fb932119f85eec50eaa1ae192faac8ff8ccbf1"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-workspace/iteration-2/eval-update/without_skill/run-1"
+        }
+      ]
+    }
+  ]
+}

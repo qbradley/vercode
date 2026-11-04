@@ -1,0 +1,208 @@
+{
+  "skill_name": "custom-vercodable",
+  "wire_revision": "global-root-frame-v3",
+  "evals": [
+    {
+      "id": 1,
+      "name": "create",
+      "prompt": "Implement only Sample's VerCodable in src/lib.rs. Keep the public model unchanged except hash derives. Point and Entry have no codecs. This is a NEW compact format, NOT byte-compatible with Vercode derives. Start each value with one u32 LE TOTAL length, including the four-byte prefix and ALL future extension bytes. There are NO nested struct/enum frames, schema words, version words, or per-pass lengths. API version 0 is the first generation. After the prefix, base/pass0 writes Sample.id, point.x/y, tail, flags, ticket, bytes, samples, entries in that order. Each entries element writes point.x/y then weight. All integers are little endian. Vec and String lengths are u32. Flags uses the VerCodable Option<bool> single-byte 0=false/1=true/2=None encoding. Ticket uses the NonZeroU32 zero niche. Pass1 follows the COMPLETE base graph: Sample.point.confidence, then entries[i].point.confidence in the saved base element order, with NO repeated counts/tags. Pass2 follows all pass1 bytes and writes label (u32 byte length, UTF-8). The writer/size honor the requested API version, clamped to known passes. The reader validates the full declared frame before decoding base and requested known passes. Exact frame end at a global pass boundary defaults later fields. A started nonempty pass must finish, including every vector element, or return InvalidEncoding. A truncated declared frame ALWAYS fails, even at an old payload boundary. read_version returns the declared TOTAL length of ONE value, including unknown future bytes, while preserving all following siblings. Returning buf.len(), known bytes, or size_version(decoded) is invalid. The codec must compose inside generic Vec/tuples and macro-derived parents. Use whole-graph primitive/bulk operations and one consistent write/read/size plan. Add literal hashed-type-def guards on the REAL Sample, Point, Entry definitions plus actual-field witnesses across Vec/Option boundaries. Root, embedded, behind-Vec and container-argument changes must fail ordinary cargo check with actionable custom-vercodable E0080 update instructions, not just E0308. Do not copy model types for the guard. Add focused tests and update instructions beside the code. Verify v0/v1/v2 whole-BODY prefix equality, literal bytes, and independent historical readers. The total-length word changes as the body grows. Test invalid/overflow/missing lengths, correctly re-framed historical endpoints, future bytes followed by a sibling, and older requested versions consuming the full frame. Compare equal VALUES, not equal bytes, with equivalent Vercode derives. Include all frame bytes in size comparisons. Expected savings are 4+8*N bytes for N entries. Any performance measurement must use nontrivial 32/512/4096 entries and separately report write/read/size. Never claim unmeasured speedups.",
+      "expected_output": "A composable single-frame codec with global graph traversals, exact future-inclusive consumption, saved topology, strict truncation, independent history, and real-type guards.",
+      "files": ["fixtures/create.rs"],
+      "expectations": [
+        "Literal base bytes and independent historical readers validate all global passes.",
+        "Every Entry base precedes every confidence byte; later traversals reuse the saved element order.",
+        "Complete generation boundaries default additions; partial batches never default.",
+        "A mandatory u32 LE total length includes its prefix and unknown future bytes; readers preserve following siblings at every requested version.",
+        "Equivalent macro values roundtrip and custom size, including its frame, is smaller by exactly 4+8*N.",
+        "Actual Sample, Point, Entry and container-argument mutations fail production guards.",
+        "A prominent source warning precedes codec-owned code, prohibits manual edits, and requires custom-vercodable in update mode for every change.",
+        "Point and Entry remain without codecs; generic Vec/tuples and macro parents compose correctly, with documented envelope and update rules."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "update",
+      "prompt": "Update the POST-BOOTSTRAP Packet codec in src/lib.rs. Add pub stamp: u64 to Child at global pass2 and pub note: String to Packet at global pass3. Keep Child without a codec. historical.rs is FROZEN: do not edit it. The base is real bincode 1.3.3 serialize for old Packet { child: Child { low:u16, high:u16 }, marker:u32, values:Vec<u16> }. It uses fixed integers, little endian, a u64 vector count, and no nested frames. After the COMPLETE base, a mandatory u32 LE extension BYTE length covers ALL extension passes, including unknown future bytes. The header exists at v0 with value zero. Published pass1 follows that header and writes enabled:bool. Pass2 appends child.stamp AFTER enabled, never inside Child's base slot. Pass3 appends note as u64 byte length plus UTF-8. No schema/version words, leading total prefix, per-pass lengths, or repeated shape. API version is out of band (base is 0). Exact declared frame end at a global pass boundary defaults later additions. A started nonempty pass must finish or fail. A truncated declared frame always fails, even at an old payload boundary. read_version validates the complete frame and reads only requested known passes. It returns base_length + 4 + declared_extension_length, including unknown future bytes, but excludes every following sibling. Returning buf.len(), only known bytes, or size_version(decoded) is invalid. Generic Vec/tuples and macro-derived parents must compose. Preserve the frozen post-bootstrap v0/v1 bytes and reader behavior. Bare pre-bootstrap bincode requires explicit migration or a separate legacy mode. Never detect an absent header from EOF/remainder, and never claim unchanged bincode readers consume future totals. Update all three methods/MAX_VERSION/real-type hash guards and the actual Vec field witness. Use actionable production E0080 custom-vercodable update instructions, including after container-argument mutations. Exercise historical.rs and compare the base projection with actual bincode::serialize on serde-derived old types. Exclude appended metadata from exact bincode base comparisons. Test explicit fixed-int/little-endian allow_trailing_bytes versus reject_trailing_bytes settings. DefaultOptions alone has different integer settings. Test every writer/reader version pair, whole-payload append-only prefixes excluding the mutable length word, correctly re-framed historical endpoints, partial passes, invalid lengths/bool/UTF-8, unknown future bytes followed by siblings, and zero/omitted headers. Count all envelope bytes in size. Preserve primitive/bulk efficiency and document the update process. Do not claim unmeasured speedups.",
+      "expected_output": "A composable version-3 codec with an exact bincode base, mandatory all-extensions length, frozen post-bootstrap pass1, global additions, and verified guards.",
+      "files": ["fixtures/update.rs"],
+      "expectations": [
+        "The frozen post-bootstrap adapter remains unchanged; its base projection matches real pre-bootstrap bincode bytes exactly.",
+        "Explicit bincode integer/endian/trailing settings distinguish exact base from forward suffixes.",
+        "All writer/reader versions default or preserve additions in complete global passes.",
+        "Child.stamp follows enabled and never shifts marker or values.",
+        "Malformed or omitted extension headers and partial batches fail; every reader consumes one full future-inclusive frame and preserves siblings.",
+        "Real Packet/Child/container guards fail ordinary cargo check with actionable E0080.",
+        "The updated source preserves or adds a prominent no-hand-edit warning before codec-owned code and requires custom-vercodable for every edit.",
+        "Child stays inlined; zero-extension adoption requires the header, and bare bincode requires explicit migration or legacy mode."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "enums",
+      "prompt": "Implement only Frame's VerCodable in src/lib.rs, preserving supplied public models except hash derives. Block, Extension, Mode, Strict are inlined. Block and Extension must have no codec. This NEW global-pass format starts with one u32 LE TOTAL length, including its four-byte prefix and all future bytes. There are no nested struct/enum frames, schema/version words, or per-pass lengths. Integers are LE, counts u32. After the prefix, base writes mode, strict, tail:u32, block.a/b:u32, code:u8, modes:Vec<Mode> in order. Mode u16 tags: Unknown=0, Idle=1, Pair=2 with base u16/u32 payload, Named=3 with base code:u32 and extra:u16 at pass1, Added=4 introduced at pass2. Added writes ONLY tag4 in base. Its [u8;3] payload is deferred to global pass2. Every future variant MUST defer ALL payload to its introduction pass. Unknown future tags therefore have NO payload in any known pass. Under THIS frozen protocol Mode safely defaults unknown complete tags to unit Unknown and skips that branch in every known pass. Do not guess payload lengths or interpret fallback as a known wire variant. This guarantee does NOT apply to adopted legacy formats with unknown base payloads. Strict u16 tags Idle=0, Value=1 with base u16 payload. Unknown Strict tags reject. Code is explicitly payload-free u8: 0/7/13 are Unknown/Ready/Busy. Any other complete code defaults Unknown. Missing tags/codes and known base Pair/Named truncations fail. For Added, write/size requested<2 reject. Read requested<2 maps tag4 to Unknown with no known-pass payload. At requested>=2 tag4 becomes Added([0;3]) until pass2 supplies its payload. Exact declared frame end before pass2 preserves defaults, but a started pass2 must finish. Pass1 follows ALL base bytes: root mode's Named.extra then each base modes Named.extra in saved order, no repeated tags/counts. Pass1 can be zero bytes. Traverse it to later nonempty passes. Pass2 writes root mode's Added payload if applicable, then each base modes Added payload in saved order, THEN extension:Option<Extension> (0=None, 1=Some plus modes Vec count and mode birth payloads). Effective payload birth=max(ancestor field introduction, VARIANT introduction, payload field introduction). Thus extension.modes Named.code/extra and Added payloads all occur together at birth2, with each element's tag. They never appear in pass1. Pass3 writes extension.checksum:u32 iff Some, with no repeated option/vector/enum shape. Missing extension=None, checksum=0, Named.extra=0. At exact declared global pass boundaries, missing later data defaults. Once a nonempty batch starts, every applicable entry/field must complete. A truncated declared frame always fails. read_version validates the full declared frame and returns exactly that total, including unknown future bytes, while preserving following siblings. Returning buf.len(), only known bytes, or size_version(decoded) is invalid. This applies at older requested versions too. Generic Vec/tuples and macro-derived parents must compose. Use safe unaligned LE Block operations with zerocopy, without a nested frame or native-endian assumption. Add real-type literal hash guards for Frame/Mode/Strict/Block/Code/Extension plus actual-field Vec/Option witnesses. Changes must fail ordinary cargo check with actionable E0080 custom-vercodable update instructions. Add independent golden/historical tests and all version pairs. Retain safe unknown tags, strict legacy distinction, fixed Code fallback, zero-byte passes, effective birth, and partial-pass tests. Test invalid/overflow/missing headers, future bytes followed by siblings, and correctly re-framed historical endpoints. Count all frame bytes in size. Whole-BODY prefixes stay unchanged, not the mutable length word. Document the composable API, unknown-tag scheduling guarantee, and asymmetric fresh-variant policy. Do not claim unmeasured speedups.",
+      "expected_output": "A single-frame enum codec with exact future-inclusive consumption, variant-birth scheduling, safe fallback, strict legacy distinction, saved topology, and endian-safe blocks.",
+      "files": ["fixtures/enums.rs"],
+      "expectations": [
+        "Independent golden bytes verify stable tags, complete base traversal, and later enum payload passes.",
+        "Unknown future Mode tags safely default because the frozen protocol defers all payload beyond known passes; Strict rejects.",
+        "Added writes reject earlier requests; earlier reads use Unknown; payload appears only in pass2 and defaults only at exact boundaries.",
+        "Zero-byte passes precede nonempty later passes without element-local EOF decisions.",
+        "Extension shape is emitted only at birth2, with Named.extra already included; checksum appends at pass3.",
+        "Block is unframed, LE and unaligned-safe; Block and Extension have no codecs.",
+        "Production guards cover real root, variants, inlined types, and container edges.",
+        "The source warning covers helpers and guards, requires custom-vercodable for all edits, and precedes codec-owned code.",
+        "One total-length prefix permits generic composition and consumes unknown future bytes at older versions without consuming a sibling."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "incompatible-edits",
+      "prompt": "A released adopted bincode codec changes its first u32 field to u64, deletes its second field, and reuses enum tag2 for a new operation. No historical fixtures exist. Keep all existing readers working. Its legacy enum payloads occur beside tags in base: also default unknown payload-bearing tags and continue decoding a sibling. Explain the decision before editing, contrasting a NEW global-pass format that defers future variant payloads to their introduction pass.",
+      "expected_output": "Blocks incompatible edits and unsafe unknown-tag skipping; requests historical evidence or an explicit migration/boundary.",
+      "files": [],
+      "expectations": [
+        "Identifies width changes, deletions, and tag reuse as incompatible; preserves old slots or requires migration.",
+        "Rejects unknown legacy base-payload tags without a boundary; distinguishes the stronger deferred-payload guarantee of a fresh global-pass protocol.",
+        "Requires historical evidence and explicit migration or reader-policy decisions before claiming compatibility."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "recursive-and-foreign-guards",
+      "prompt": "Create a root-wide global-pass codec for Node { children: Vec<Node>, handle: vendor::Handle }. The vendor type exposes a framed codec but no structural hash or definition. Add one hashed-type-def assertion that catches every change anywhere in this graph. Do not modify the vendor crate. Is the guard achievable, and can the foreign codec simply join the root's unframed passes?",
+      "expected_output": "Identifies recursion and opacity as separate blockers and does not confuse nominal container hashes with a complete graph guarantee.",
+      "files": [],
+      "expectations": [
+        "Identifies recursive hashing and opaque foreign definition as separate blockers.",
+        "Does not invent a transitive guarantee from TypeId, size_of, copied types, or nominal Vec hashes.",
+        "Separates a deliberately adopted opaque framed leaf from an unsupported root-wide schema traversal."
+      ]
+    },
+    {
+      "id": 6,
+      "name": "generic-guard",
+      "prompt": "Create Envelope<T,const N:usize> { items:[T;N], tail:u32 } as a public generic codec with unknown downstream T. Require any T definition change to fail ordinary cargo check even if no method is called. Explain how a literal hashed-type-def guard is evaluated. A custom T reader returns buf.len(), only known bytes, or size_version(decoded) when future extensions precede the next element. Can any of these satisfy generic Vec<T> or tuple composition? Propose a composable wire contract.",
+      "expected_output": "Distinguishes concrete evaluated guards from universal generic promises and requires exact future-inclusive frame consumption for composition.",
+      "files": [],
+      "expectations": [
+        "Distinguishes per-instantiation guards from a universal unconditional generic guarantee.",
+        "Explains when Rust evaluates assertions and requests concrete supported roots if needed.",
+        "Rejects all three consumed-length shortcuts; requires an encoded boundary covering unknown future bytes and preserving siblings."
+      ]
+    },
+    {
+      "id": 7,
+      "name": "transparent-options",
+      "prompt": "Replace released VercodeTransparent codecs for Flag(bool) and Key(NonZeroU32) with handwritten codecs. Existing Option fields must preserve every byte, default, and malformed-input behavior. Separately, a NEW global-pass root adds Option<Vec<Point>> at pass4; Point has x at base, y at pass2, z at pass6. Explain the option hooks and when the new subtree's shape/fields appear.",
+      "expected_output": "Preserves historical specialized option hooks and schedules new subtree fields using effective birth.",
+      "files": [],
+      "expectations": [
+        "Preserves write_option/read_option/size_option_version, bool codes, and the NonZero zero niche without extra Clone bounds.",
+        "At pass4 writes option/vector shape and both x/y once; at pass6 replays saved elements for z without repeated shape.",
+        "Defaults an absent whole later pass but rejects partial entries after that pass starts."
+      ]
+    },
+    {
+      "id": 8,
+      "name": "zerocopy-padding",
+      "prompt": "Adopt bincode 1.3.3 serialize bytes for old Header { valid:bool, count:u64, values:Vec<u16> } and append a child field in a later global pass. Use raw repr(C) memory because the struct is Copy, or DefaultOptions::new() if easier. Explain endian, padding, integer/count settings, and whether an old reader accepts or consumes the suffix. Bootstrap a composable adapter with a mandatory u32 LE length of ALL extension bytes after the frozen base. Can the adapter omit a zero-length header, detect bare bincode from EOF, or claim unchanged legacy readers consume future frames? Contrast adoption of a Vercode-derived root that already has a u32 total-length prefix and nested frames. Is another leading or after-base length needed? Where do new nested fields go, and what length does an unchanged old macro reader return? Can that reader's returned consumption locate the start of the extension passes?",
+      "expected_output": "Rejects raw memory and mismatched defaults; distinguishes unframed bincode bootstrap from reuse of an existing macro root length without extra framing.",
+      "files": [],
+      "expectations": [
+        "Rejects raw memory copying and retains bool validity plus little-endian wire operations.",
+        "Uses actual bincode 1.3.3 serialize with fixed integers and u64 container lengths; DefaultOptions alone is not equivalent.",
+        "Separates trailing-byte acceptance from full consumption; requires a zero-extension header from bootstrap and explicit migration/legacy mode for bare bincode.",
+        "Reuses the macro root length to cover all appended global passes without another leading or after-base length. Preserves historical fields and nested headers, with new nested fields in the global suffix. Unchanged old macro readers return the expanded total, so the new decoder tracks the historical field cursor separately to locate extensions."
+      ]
+    },
+    {
+      "id": 9,
+      "name": "metadata-only-change",
+      "prompt": "The hash passes after changing an enum's explicit discriminant, a field version comment, Default::default(), and HashMap insertion order. Can I skip codec review? Our root emits base map entries and later per-value fields in a second pass. Another consumer rebuilds the map before replay.",
+      "expected_output": "Requires semantic review beyond hashes and stable map replay based on saved/canonical base ordering.",
+      "files": [],
+      "expectations": [
+        "Explains hash limits for attributes/discriminants/defaults and distinguishes source-position tags from explicit integer codes.",
+        "Rejects replay using independently randomized map iteration or rebuilt insertion order.",
+        "Requires a saved base entry sequence or documented canonical ordering shared by every pass, plus wire/default tests."
+      ]
+    },
+    {
+      "id": 10,
+      "name": "integer-enum-format",
+      "prompt": "A released Code uses VercodeEnumU8 with stable payload-free codes7 and255. Add code13 and default unknown codes. Beside it, a legacy unframed payload-bearing Mode writes payload immediately after its tag before a u32 sibling and implements Rust Default. Can both unknown values safely default? Contrast a fresh global-pass Mode where every future variant's entire payload is deferred to its introduction pass. Should I silently add frames to either historical format?",
+      "expected_output": "Preserves fixed-width codes and distinguishes bounded payload-free fallback from unknown unframed payload impossibility.",
+      "files": [],
+      "expectations": [
+        "Preserves unframed one-byte codes7/255/13; rejects a silent historical migration to framed enums.",
+        "Defaults a complete unknown Code but rejects empty/truncated input.",
+        "Rejects unknown legacy Mode tags; allows future-tag fallback only under a frozen no-payload-in-known-passes protocol, not from Rust Default alone."
+      ]
+    },
+    {
+      "id": 11,
+      "name": "zero-sized-and-hostile-counts",
+      "prompt": "A composable root-wide codec has one total-length prefix, Vec<()>, Vec<Record>, pass1 fields only in an inactive enum variant (so pass1 emits zero bytes), and a nonempty String in pass2. A new zero-sized field has a Default that increments a counter. Explain decoding old/new frames, hostile lengths, and traversing later passes without version words or per-pass lengths.",
+      "expected_output": "Traverses zero-byte passes, identifies side-effecting defaults as a contract blocker, and does not use element-local EOF or untrusted allocation.",
+      "files": [],
+      "expectations": [
+        "Handles Vec<()> by count without an element loop and bounds allocations/checked arithmetic for hostile nonzero element counts.",
+        "Traverses empty pass1 to read pass2; does not infer a zero-sized field's presence from byte availability.",
+        "Requires pure/default-equivalent zero-byte fields or reports the unmet guarantee for side-effecting defaults; exact whole-pass boundaries may default, started nonempty passes must complete."
+      ]
+    },
+    {
+      "id": 12,
+      "name": "source-reorder-and-version-gaps",
+      "prompt": "Released global passes are0,2,9 inside one leading total-length frame. Rust fields were reordered for readability. Now add a nested field behind Vec and a root field. Preserve old payload bytes. read_version receives a value followed by siblings and does not understand future extension bytes. Explain ordering, new version allocation, full consumed length at older requested versions, and why version alone or external-only bounds are insufficient. Can an inlined Vec element emit all versions before the next element? Is a sentinel valid if an old reader cannot locate it unambiguously?",
+      "expected_output": "Keeps historical graph-wide order and payload prefixes, returns an unambiguous future-inclusive frame length, and replays base topology per pass.",
+      "files": [],
+      "expectations": [
+        "Uses frozen historical wire order and introductions above the released whole-graph maximum, not source order.",
+        "Writes every base element before any later element fields and reuses saved order without repeating counts/tags.",
+        "Explains version gaps and full frame consumption at older requests; rejects version-only/external-only bounds and ambiguous sentinels. The mutable length word is not part of the append-only payload invariant."
+      ]
+    },
+    {
+      "id": 13,
+      "name": "byte-preserving-write-specialization",
+      "prompt": "A handwritten codec adopts a macro-derived VerCodable format without changing its bytes or requested-version behavior. The reported read speed improves by 25%, encoded size is unchanged, and write speed is flat. Its write_data_request merges Write and WritePatch through artificial Option values and a variable cursor. The matching optimized assembly retains indexed addressing, a patch branch, and late bounds checks. Both variants include 16 frozen checksum frames, each [length:u32 LE = 8, checksum:u32 LE]. The assembly emits 16 scalar header stores and 16 scalar checksum stores. Propose byte-preserving write optimizations without changing the model or removing historical headers. Explain bounds handling for the distinct fixed layouts and variable tails, how to pack a header/checksum pair safely, and why fewer stores or possible vectorization do not prove a win. You have no benchmark binary, profile, or raw timings here. What evidence is needed before ranking costs or claiming success, and does the reported read gain meet the write goal?",
+      "expected_output": "Separates fixed layouts and proposes safe packed historical frames as measured candidates, while preserving bytes and reporting the unmet write goal honestly.",
+      "files": [],
+      "expectations": [
+        "Keeps the historical bytes, nested headers, existing root framing, and requested-version behavior. Equal size is expected for the unchanged adopted schema; a reported read gain does not meet the write-speed goal.",
+        "Distinguishes uniform write/read/size schedules per layout from merging variants with artificial Options or flags. Proposes one variant dispatch, one bound per fixed base/run, constant offsets, and separate variable-tail bounds without a subtree sizing preflight.",
+        "Packs each frozen pair as 8u64 | (u64::from(checksum) << 32), or a byte-equivalent form, then uses to_le_bytes and an eight-byte bounded chunk. Retains all 16 headers, original element order, safe unaligned output, and pass boundaries without staging the full output.",
+        "Treats extra packing operations, compiler store combining, code-size costs, and vectorization as measurement questions rather than guaranteed improvements.",
+        "Requests or records the exact release binary, source revision, compiler flags, target, and profile before attributing costs. Proposes separate and combined paired measurements per variant and representative mixture, after byte-equality, size/write agreement, and short-buffer cases. Does not invent assembly findings, timings, or a successful speedup."
+      ]
+    },
+    {
+      "id": 14,
+      "name": "typed-field-layouts-and-evolution",
+      "prompt": "The resolved local vercode crate exports WireField<T, const OFFSET: usize> with pub const fn new() -> Self, field.read(&[u8]) -> Result<T, InvalidEncoding>, and field.write(&mut [u8], T) -> Result<(), InvalidEncoding>. WirePrimitive is sealed to unrestricted little-endian integers. Explain and sketch its use for: a fresh fixed run containing u64/u128 fields; adoption of an existing macro root with framed checksum children; and an update adding a variable-sized String in a later global pass. The model also has bool and Option<NonZeroU64> fields with the existing VerCode encodings. Share field declarations between read/write, retain independent historical fixtures and type guards, and keep the enclosing size and full-consumption contracts. Does a packed historical [length:u32=8, checksum:u32] pair have to become two scalar writes? Can matching read/write field declarations prove correct offsets? Which malformed field ranges still need checks?",
+      "expected_output": "Uses named crate-owned typed fields for bounded fixed runs while preserving historical framing, domain conversions, global passes, and independent compatibility evidence.",
+      "files": [],
+      "expectations": [
+        "Declares named WireField<integer, offset> constants once per explicitly bounded run and uses those same declarations in read/write. Offsets are relative to that run, with endian conversion owned by the crate rather than copied local helpers or a runtime descriptor list.",
+        "Retains the macro root prefix, nested checksum headers, root backpatching and future-inclusive consumption. Preserves packed u64 emission when measured appropriate, instead of forcing two scalar stores or deleting the historical header.",
+        "Keeps earlier offsets frozen and emits the new String only in its later global pass, with defaulting at whole-pass boundaries and exact size/write agreement.",
+        "Uses raw integer fields plus explicit bool validity and NonZero option/niche conversions. Does not implement WirePrimitive for domain wrappers or blanket VerCodable types, and distinguishes target-width usize/isize from portable fixed-width integers.",
+        "Retains independent golden/history comparisons, malformed-buffer and offset-overflow checks, structural guard mutations, and measured performance evidence. Shared constants alone do not prove correct offsets, full framing, or semantic validity."
+      ]
+    },
+    {
+      "id": 15,
+      "name": "typed-field-availability-and-neutral-cost",
+      "prompt": "A consumer resolves vercode 0.7.0 without WireField. Its agent plugin is 0.8.0, and a local unreleased 0.8.0 checkout contains the helper. Refactor serialization without changing dependencies. Separately, a same-binary comparison of manual fixed offsets and the checked public helper passes a declared non-regression gate, but neither write nor size gets faster. The old cursor-based reader was slower. Should the consumer import WireField, copy its implementation, or silently upgrade the dependency? Can the skill call 0.8.0 the minimum published release, claim a write speedup, or credit the helper with the old cursor reader's entire improvement? Explain the adoption and evidence policy. What artifacts establish the cost of the checked public interface across crates, rather than an infallible private prototype?",
+      "expected_output": "Gates helper use on actual dependency support, retains explicit offsets for old crates, and separates an unreleased version and a neutral-cost refactor from published availability or speedup claims.",
+      "files": [],
+      "expectations": [
+        "Inspects the resolved crate rather than inferring availability from the plugin version. Keeps explicit fixed-offset code when the helper is absent, without unresolved imports, a copied helper framework, or an unrequested dependency change.",
+        "Labels 0.8.0 as unreleased in this scenario and records the minimum published version only after a real release. Does not publish or update consumers as a side effect.",
+        "Accepts a measured non-regression result as evidence for abstraction cost, not a write/size speedup or fulfillment of a separate codec improvement goal. Compares against manual fixed offsets with identical ownership and schedules, not only the old cursor implementation.",
+        "Keeps checked malformed-input behavior and requires evidence from the actual cross-crate public helper, including assembly, raw paired timings, compiler and target. Does not transfer private infallible-prototype results to the checked public interface."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {"query": "Handwrite a compact composable VerCodable for telemetry::Batch with one total-length frame and graph-wide append-only passes.", "should_trigger": true},
+  {"query": "The Root TYPE_HASH_NATIVE assertion failed after I added a field to its nested Header. Update the codec, not just the constant.", "should_trigger": true},
+  {"query": "We need old clients to skip the new fields and new servers to default missing fields in our manual VerCode implementation.", "should_trigger": true},
+  {"query": "Create a root-wide versioned enum codec. Defer new variant payloads to their global introduction passes so old readers can default unknown future tags.", "should_trigger": true},
+  {"query": "Replace the Vercode derive for Event with straight-line methods and keep exactly the same bytes.", "should_trigger": true},
+  {"query": "Inline Vec<Child> in Envelope without Child codecs. Emit all child base fields first, then replay later fields in saved element order.", "should_trigger": true},
+  {"query": "Our custom VerCodable is stale after an enum variant was inserted. Preserve the released tag values and update its guard.", "should_trigger": true},
+  {"query": "Implement VerCodable for this zerocopy payload, preserving its parent's historical framing and little-endian wire bytes.", "should_trigger": true},
+  {"query": "Adopt bincode 1.3.3 fixed-int LE base bytes in a composable Message codec with a mandatory length of all extension bytes, and leave update instructions.", "should_trigger": true},
+  {"query": "Update this handwritten VerCode codec after moving source fields. Do not move their published wire slots.", "should_trigger": true},
+  {"query": "Explain what the existing VerCodable trait does. I do not want any implementation changes.", "should_trigger": false},
+  {"query": "Fix a parser bug in the Vercode derive macro when a version attribute uses an integer suffix.", "should_trigger": false},
+  {"query": "Review this PR's custom codec for bugs; do not rewrite it or update the skill.", "should_trigger": false},
+  {"query": "Update the crate release version from 0.7 to 0.8 and write the changelog.", "should_trigger": false},
+  {"query": "Add serde Serialize and Deserialize derives to Config for our JSON settings file.", "should_trigger": false},
+  {"query": "Compare hashed-type-def with TypeId for a plugin registry; this is unrelated to wire codecs.", "should_trigger": false},
+  {"query": "Measure the current VerCode benchmarks without changing any implementation.", "should_trigger": false},
+  {"query": "Replace a memcpy in the network receive loop; the bytes never go through VerCodable.", "should_trigger": false},
+  {"query": "Design a new incompatible binary protocol with a separate magic number and schema negotiation.", "should_trigger": false},
+  {"query": "Add an enum variant to this UI model. It has no persistent or serialized representation.", "should_trigger": false}
+]

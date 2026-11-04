@@ -1,0 +1,12 @@
+{
+  "name": "vercode-tools",
+  "owner": {
+    "name": "VerCode contributors"
+  },
+  "plugins": [
+    {
+      "name": "vercode",
+      "source": "./vercode/agent-plugin"
+    }
+  ]
+}

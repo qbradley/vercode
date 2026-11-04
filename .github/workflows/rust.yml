@@ -18,6 +18,8 @@ jobs:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Format
       run: cargo fmt --all --check
+    - name: Check agent plugin and evaluation harness
+      run: python3 -m unittest discover -s skill-evals/custom-vercodable/scripts -p 'test_*.py'
     - name: Build
       run: cargo build --all-features --all-targets
     - name: Lint

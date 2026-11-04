@@ -1,0 +1,4446 @@
+{
+  "skill_name": "custom-vercodable",
+  "wire_revision": "global-root-passes-v2",
+  "iterations": [
+    {
+      "iteration": "iteration-1",
+      "metadata": {
+        "skill_name": "custom-vercodable",
+        "skill_path": "/workspace/qbradley/vercode/target/skill-evals/custom-vercodable-append-v1",
+        "executor_model": "gpt-6-astra",
+        "analyzer_model": "gpt-6-astra",
+        "timestamp": "2026-11-05T00:25:44Z",
+        "evals_run": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "runs_per_configuration": 1,
+        "wire_revision": "global-root-passes-v2",
+        "skill_files_sha256": {
+          "SKILL.md": "ca333db6b587df7afbb63fb4986fd45f2058304b34ed9b2f04334e1cf0265ca7",
+          "references/adoption.md": "52b1bd6db15b5f66681b135cdae9347ef0f9508a88f1fd0c8d2ae2d390a65cf9",
+          "references/implementation.md": "7113b67c355ced6f3da4e2b7eaacaf1f609897ee861fcde700fbfde04460bf8c",
+          "references/type-guards.md": "aeafb5b70d1f44afacde223aea279159d1e3f1ed338643f7fc6f8a55e9d45859",
+          "references/wire-contract.md": "5dda37ac6f1dd1d69afbf37de5131c6ad7c6db3518bbe79457bceef12191501c"
+        },
+        "resource_metrics": "Unavailable: token counts and precise executor timing were not reported."
+      },
+      "runs": [
+        {
+          "case": "create",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 29,
+            "failed": 0,
+            "total": 29,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "literal_base_has_no_struct_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "global_passes_follow_all_base_elements_without_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_historical_writers_default_later_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_historical_readers_ignore_future_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "equivalent_macro_values_and_exact_frame_savings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "option_specializations_are_preserved",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_accepts_only_complete_generations",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "a_started_vector_pass_cannot_default_remaining_entries",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_whole_pass_defaults_but_partial_string_fails",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_utf8_and_hostile_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_suffix_is_ignored_with_full_external_consumption",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "externally_length_delimited_roots_do_not_steal_siblings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_containers_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "saved_base_order_survives_distinct_element_values",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_Point_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Point.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "nested_type_Entry_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Entry.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_behind_vec_mutation",
+              "passed": true,
+              "evidence": "logs/guard-behind_vec.log"
+            },
+            {
+              "text": "compile_guard_array_mutation",
+              "passed": true,
+              "evidence": "logs/guard-array.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_entry_argument_mutation",
+              "passed": true,
+              "evidence": "logs/guard-entry_argument.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": true,
+              "evidence": "logs/guard-option.log"
+            },
+            {
+              "text": "compile_guard_ticket_argument_mutation",
+              "passed": true,
+              "evidence": "logs/guard-ticket_argument.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "0cfbd8dbbc6cbb6d6cfbc4ee58e3e4ecf14c348d0e387fcdaf43ec5f6fb39b28"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-create/with_skill/run-1",
+          "performance": {
+            "wire_revision": "global-root-passes-v2",
+            "case": "create",
+            "methods": [
+              "write",
+              "read_owned",
+              "size"
+            ],
+            "statistics": [
+              "paired_samples",
+              "min",
+              "median",
+              "max"
+            ],
+            "performance_acceptance": {
+              "passed": true,
+              "policy": "For EACH current-version (v2) workload with 32, 512, and 4096 Entry elements: custom encoding must be strictly smaller; write, read_owned, and size must EACH have a lower custom median and at least 7 custom wins in 9 paired samples. Base v0 workloads are reported separately and do not determine acceptance.",
+              "scope": "Observed current-version workloads only; not a universal speedup claim."
+            },
+            "limitations": [
+              "Shared-host wall-clock measurements are not statistical proof; repeat on an idle controlled host.",
+              "No allocation counts, code-size measurement, cross-target execution, or confidence intervals.",
+              "Base and current versions; owned read includes allocation/drop, write reuses buffers.",
+              "Setup and semantic roundtrip validation are outside timing; pair order alternates each sample.",
+              "Size savings and speed acceptance are separate; no universal speedup claim."
+            ],
+            "behavior_gate_passed": true,
+            "workloads": [
+              {
+                "elements": 32,
+                "version": 0,
+                "iterations_per_method": {
+                  "write": 20000,
+                  "read_owned": 20000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 421,
+                "derive_bytes": 685,
+                "savings_bytes": 264,
+                "custom_ns": {
+                  "write": [
+                    21.2002,
+                    21.1952,
+                    23.29525,
+                    21.19525,
+                    21.1952,
+                    21.19525,
+                    21.1952,
+                    21.2802,
+                    21.1902
+                  ],
+                  "read_owned": [
+                    119.1212,
+                    119.0562,
+                    117.4762,
+                    118.9962,
+                    120.36625,
+                    118.4812,
+                    118.0462,
+                    119.2012,
+                    116.53115
+                  ],
+                  "size": [
+                    2.00642,
+                    2.023221,
+                    2.00472,
+                    2.262222,
+                    2.006221,
+                    2.00592,
+                    2.01752,
+                    2.00482,
+                    2.02332
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    54.99055,
+                    55.11055,
+                    54.99555,
+                    54.99055,
+                    56.50055,
+                    54.99055,
+                    54.99555,
+                    57.2156,
+                    55.27555
+                  ],
+                  "read_owned": [
+                    138.3264,
+                    139.6214,
+                    143.74645,
+                    145.78645,
+                    140.3814,
+                    144.58645,
+                    137.8664,
+                    144.17145,
+                    140.15645
+                  ],
+                  "size": [
+                    1.762718,
+                    1.751117,
+                    2.813828,
+                    4.104042,
+                    1.771418,
+                    1.787318,
+                    1.753218,
+                    1.769918,
+                    1.751518
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 21.19525,
+                    "derive_median_ns": 54.99555,
+                    "custom_min_ns": 21.1902,
+                    "custom_max_ns": 23.29525,
+                    "derive_min_ns": 54.99055,
+                    "derive_max_ns": 57.2156,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.594711079133296,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 118.9962,
+                    "derive_median_ns": 140.3814,
+                    "custom_min_ns": 116.53115,
+                    "custom_max_ns": 120.36625,
+                    "derive_min_ns": 137.8664,
+                    "derive_max_ns": 145.78645,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.1797133017693002,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.00642,
+                    "derive_median_ns": 1.769918,
+                    "custom_min_ns": 2.00472,
+                    "custom_max_ns": 2.262222,
+                    "derive_min_ns": 1.751117,
+                    "derive_max_ns": 4.104042,
+                    "paired_custom_wins": 2,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 0.882127371138645,
+                    "custom_faster_accepted": false,
+                    "verdict": "slower_or_equal_median"
+                  }
+                },
+                "performance_accepted": false
+              },
+              {
+                "elements": 32,
+                "version": 2,
+                "iterations_per_method": {
+                  "write": 20000,
+                  "read_owned": 20000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 465,
+                "derive_bytes": 729,
+                "savings_bytes": 264,
+                "custom_ns": {
+                  "write": [
+                    28.7803,
+                    28.0753,
+                    28.22025,
+                    28.3303,
+                    28.2953,
+                    28.6403,
+                    28.7703,
+                    28.36025,
+                    28.4403
+                  ],
+                  "read_owned": [
+                    142.9914,
+                    144.00145,
+                    142.09645,
+                    143.39645,
+                    142.4464,
+                    143.07645,
+                    142.95145,
+                    195.987,
+                    143.63145
+                  ],
+                  "size": [
+                    2.165022,
+                    2.165622,
+                    2.152822,
+                    2.171922,
+                    2.170522,
+                    2.154222,
+                    2.170022,
+                    2.171722,
+                    2.154821
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    59.6356,
+                    58.8806,
+                    65.9007,
+                    61.7106,
+                    66.99065,
+                    66.14565,
+                    66.15565,
+                    66.2007,
+                    61.41065
+                  ],
+                  "read_owned": [
+                    171.77675,
+                    172.28675,
+                    171.1267,
+                    171.93175,
+                    174.4468,
+                    172.5567,
+                    169.2717,
+                    277.7328,
+                    171.9217
+                  ],
+                  "size": [
+                    2.441425,
+                    2.425224,
+                    2.446025,
+                    2.430724,
+                    2.430224,
+                    2.449225,
+                    2.426624,
+                    2.444225,
+                    2.444125
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 28.36025,
+                    "derive_median_ns": 65.9007,
+                    "custom_min_ns": 28.0753,
+                    "custom_max_ns": 28.7803,
+                    "derive_min_ns": 58.8806,
+                    "derive_max_ns": 66.99065,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.3236995442564856,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 143.07645,
+                    "derive_median_ns": 171.93175,
+                    "custom_min_ns": 142.09645,
+                    "custom_max_ns": 195.987,
+                    "derive_min_ns": 169.2717,
+                    "derive_max_ns": 277.7328,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.201677494793867,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.165622,
+                    "derive_median_ns": 2.441425,
+                    "custom_min_ns": 2.152822,
+                    "custom_max_ns": 2.171922,
+                    "derive_min_ns": 2.425224,
+                    "derive_max_ns": 2.449225,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.127355097057566,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  }
+                },
+                "performance_accepted": true
+              },
+              {
+                "elements": 512,
+                "version": 0,
+                "iterations_per_method": {
+                  "write": 2000,
+                  "read_owned": 2000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 4261,
+                "derive_bytes": 8365,
+                "savings_bytes": 4104,
+                "custom_ns": {
+                  "write": [
+                    233.4025,
+                    233.3025,
+                    233.452,
+                    233.2525,
+                    233.452,
+                    232.952,
+                    233.1025,
+                    233.1025,
+                    233.902
+                  ],
+                  "read_owned": [
+                    1250.8125,
+                    1246.8625,
+                    1248.1125,
+                    1265.9125,
+                    1242.8125,
+                    1249.613,
+                    1242.9625,
+                    1248.8125,
+                    1244.8625
+                  ],
+                  "size": [
+                    2.023421,
+                    2.00482,
+                    2.026521,
+                    2.02232,
+                    2.004821,
+                    2.022821,
+                    2.00482,
+                    2.016421,
+                    2.00472
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    750.7575,
+                    758.7075,
+                    751.158,
+                    758.2075,
+                    752.3075,
+                    759.808,
+                    765.408,
+                    763.8575,
+                    751.458
+                  ],
+                  "read_owned": [
+                    1638.9665,
+                    1651.2165,
+                    1984.27,
+                    2832.679,
+                    1687.717,
+                    1694.517,
+                    1695.767,
+                    1694.517,
+                    1682.767
+                  ],
+                  "size": [
+                    1.753317,
+                    1.769718,
+                    1.746617,
+                    1.750018,
+                    1.767818,
+                    1.751017,
+                    1.768818,
+                    1.751017,
+                    1.763818
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 233.3025,
+                    "derive_median_ns": 758.2075,
+                    "custom_min_ns": 232.952,
+                    "custom_max_ns": 233.902,
+                    "derive_min_ns": 750.7575,
+                    "derive_max_ns": 765.408,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 3.249890164057393,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 1248.1125,
+                    "derive_median_ns": 1694.517,
+                    "custom_min_ns": 1242.8125,
+                    "custom_max_ns": 1265.9125,
+                    "derive_min_ns": 1638.9665,
+                    "derive_max_ns": 2832.679,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.3576636721449389,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.016421,
+                    "derive_median_ns": 1.753317,
+                    "custom_min_ns": 2.00472,
+                    "custom_max_ns": 2.026521,
+                    "derive_min_ns": 1.746617,
+                    "derive_max_ns": 1.769718,
+                    "paired_custom_wins": 0,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 0.8695193116913582,
+                    "custom_faster_accepted": false,
+                    "verdict": "slower_or_equal_median"
+                  }
+                },
+                "performance_accepted": false
+              },
+              {
+                "elements": 512,
+                "version": 2,
+                "iterations_per_method": {
+                  "write": 2000,
+                  "read_owned": 2000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 4785,
+                "derive_bytes": 8889,
+                "savings_bytes": 4104,
+                "custom_ns": {
+                  "write": [
+                    308.2035,
+                    307.5535,
+                    307.603,
+                    307.903,
+                    307.5035,
+                    308.203,
+                    308.4535,
+                    307.603,
+                    479.055
+                  ],
+                  "read_owned": [
+                    1851.819,
+                    1348.7135,
+                    1365.164,
+                    1351.1635,
+                    1358.4135,
+                    1365.7135,
+                    1347.264,
+                    1361.6635,
+                    1351.8135
+                  ],
+                  "size": [
+                    2.167422,
+                    2.151622,
+                    2.172422,
+                    2.166422,
+                    2.142522,
+                    2.164921,
+                    3.183033,
+                    2.151821,
+                    2.170422
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    754.5575,
+                    770.7575,
+                    754.3075,
+                    760.2075,
+                    753.8575,
+                    760.0575,
+                    753.6575,
+                    759.1575,
+                    1595.816
+                  ],
+                  "read_owned": [
+                    1747.1175,
+                    1738.6675,
+                    1737.3675,
+                    1731.7175,
+                    1729.3175,
+                    1728.7175,
+                    1731.8675,
+                    1739.0175,
+                    1734.0675
+                  ],
+                  "size": [
+                    2.430125,
+                    2.446224,
+                    2.439325,
+                    2.427724,
+                    2.439124,
+                    2.426825,
+                    4.557745,
+                    2.488626,
+                    2.426925
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 307.903,
+                    "derive_median_ns": 759.1575,
+                    "custom_min_ns": 307.5035,
+                    "custom_max_ns": 479.055,
+                    "derive_min_ns": 753.6575,
+                    "derive_max_ns": 1595.816,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.465573573495549,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 1358.4135,
+                    "derive_median_ns": 1734.0675,
+                    "custom_min_ns": 1347.264,
+                    "custom_max_ns": 1851.819,
+                    "derive_min_ns": 1728.7175,
+                    "derive_max_ns": 1747.1175,
+                    "paired_custom_wins": 8,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.2765387711473715,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.166422,
+                    "derive_median_ns": 2.439124,
+                    "custom_min_ns": 2.142522,
+                    "custom_max_ns": 3.183033,
+                    "derive_min_ns": 2.426825,
+                    "derive_max_ns": 4.557745,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.1258766759200194,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  }
+                },
+                "performance_accepted": true
+              },
+              {
+                "elements": 4096,
+                "version": 0,
+                "iterations_per_method": {
+                  "write": 300,
+                  "read_owned": 300,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 32933,
+                "derive_bytes": 65709,
+                "savings_bytes": 32776,
+                "custom_ns": {
+                  "write": [
+                    2376.36,
+                    2300.69,
+                    2309.0233333333335,
+                    2301.3566666666666,
+                    2300.69,
+                    2302.3566666666666,
+                    2308.0233333333335,
+                    2345.69,
+                    2301.3566666666666
+                  ],
+                  "read_owned": [
+                    10277.773333333333,
+                    10327.106666666667,
+                    10313.436666666666,
+                    10228.766666666666,
+                    10282.44,
+                    10288.103333333333,
+                    10267.436666666666,
+                    11244.113333333333,
+                    10309.103333333333
+                  ],
+                  "size": [
+                    2.00472,
+                    2.02472,
+                    2.00472,
+                    2.02562,
+                    2.006221,
+                    2.02282,
+                    2.004821,
+                    2.00472,
+                    2.022721
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    6202.393333333333,
+                    6242.0633333333335,
+                    6201.0633333333335,
+                    6240.73,
+                    6240.0633333333335,
+                    6201.06,
+                    6241.0633333333335,
+                    6200.73,
+                    6203.73
+                  ],
+                  "read_owned": [
+                    13086.463333333333,
+                    13277.466666666667,
+                    12848.796666666667,
+                    13176.466666666667,
+                    13232.133333333333,
+                    13221.8,
+                    12858.463333333333,
+                    21830.553333333333,
+                    12978.463333333333
+                  ],
+                  "size": [
+                    1.759918,
+                    1.750518,
+                    1.768018,
+                    1.747218,
+                    1.769117,
+                    1.750818,
+                    1.752217,
+                    1.769818,
+                    1.747017
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 2302.3566666666666,
+                    "derive_median_ns": 6203.73,
+                    "custom_min_ns": 2300.69,
+                    "custom_max_ns": 2376.36,
+                    "derive_min_ns": 6200.73,
+                    "derive_max_ns": 6242.0633333333335,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.694513013477495,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 10288.103333333333,
+                    "derive_median_ns": 13176.466666666667,
+                    "custom_min_ns": 10228.766666666666,
+                    "custom_max_ns": 11244.113333333333,
+                    "derive_min_ns": 12848.796666666667,
+                    "derive_max_ns": 21830.553333333333,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.2807478929546783,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.006221,
+                    "derive_median_ns": 1.752217,
+                    "custom_min_ns": 2.00472,
+                    "custom_max_ns": 2.02562,
+                    "derive_min_ns": 1.747017,
+                    "derive_max_ns": 1.769818,
+                    "paired_custom_wins": 0,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 0.8733918147601883,
+                    "custom_faster_accepted": false,
+                    "verdict": "slower_or_equal_median"
+                  }
+                },
+                "performance_accepted": false
+              },
+              {
+                "elements": 4096,
+                "version": 2,
+                "iterations_per_method": {
+                  "write": 300,
+                  "read_owned": 300,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 37041,
+                "derive_bytes": 69817,
+                "savings_bytes": 32776,
+                "custom_ns": {
+                  "write": [
+                    3364.366666666667,
+                    3294.7,
+                    3293.7,
+                    3338.366666666667,
+                    3293.366666666667,
+                    3296.0333333333333,
+                    3290.366666666667,
+                    3290.7,
+                    3293.6966666666667
+                  ],
+                  "read_owned": [
+                    11301.783333333333,
+                    17506.176666666666,
+                    11594.116666666667,
+                    11299.113333333333,
+                    11257.446666666667,
+                    11228.113333333333,
+                    11262.113333333333,
+                    11291.783333333333,
+                    11261.113333333333
+                  ],
+                  "size": [
+                    2.164922,
+                    2.148121,
+                    2.161622,
+                    2.161522,
+                    2.131022,
+                    2.172022,
+                    2.153321,
+                    2.215022,
+                    2.151322
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    7146.403333333334,
+                    7198.073333333334,
+                    7185.406666666667,
+                    7143.74,
+                    7152.736666666667,
+                    7205.073333333334,
+                    7214.406666666667,
+                    7207.74,
+                    7207.74
+                  ],
+                  "read_owned": [
+                    13273.133333333333,
+                    15087.15,
+                    13373.47,
+                    13338.133333333333,
+                    13315.803333333333,
+                    13323.133333333333,
+                    13266.8,
+                    13290.8,
+                    13271.466666666667
+                  ],
+                  "size": [
+                    2.427724,
+                    2.439425,
+                    2.431425,
+                    2.438324,
+                    2.446024,
+                    2.430825,
+                    3.111232,
+                    4.757548,
+                    2.448224
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 3293.7,
+                    "derive_median_ns": 7198.073333333334,
+                    "custom_min_ns": 3290.366666666667,
+                    "custom_max_ns": 3364.366666666667,
+                    "derive_min_ns": 7143.74,
+                    "derive_max_ns": 7214.406666666667,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.1854064830838675,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 11291.783333333333,
+                    "derive_median_ns": 13315.803333333333,
+                    "custom_min_ns": 11228.113333333333,
+                    "custom_max_ns": 17506.176666666666,
+                    "derive_min_ns": 13266.8,
+                    "derive_max_ns": 15087.15,
+                    "paired_custom_wins": 8,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.1792471516899456,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.161522,
+                    "derive_median_ns": 2.439425,
+                    "custom_min_ns": 2.131022,
+                    "custom_max_ns": 2.215022,
+                    "derive_min_ns": 2.427724,
+                    "derive_max_ns": 4.757548,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.128568203330801,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  }
+                },
+                "performance_accepted": true
+              }
+            ],
+            "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1",
+            "source_sha256": {
+              "src/lib.rs": "0cfbd8dbbc6cbb6d6cfbc4ee58e3e4ecf14c348d0e387fcdaf43ec5f6fb39b28"
+            }
+          },
+          "superseded_performance": {
+            "performance-short-size-samples.json": {
+              "wire_revision": "global-root-passes-v2",
+              "case": "create",
+              "methods": [
+                "write",
+                "read_owned",
+                "size"
+              ],
+              "statistics": [
+                "paired_samples",
+                "min",
+                "median",
+                "max"
+              ],
+              "performance_acceptance": {
+                "passed": false,
+                "policy": "For EACH current-version (v2) workload with 32, 512, and 4096 Entry elements: custom encoding must be strictly smaller; write, read_owned, and size must EACH have a lower custom median and at least 7 custom wins in 9 paired samples. Base v0 workloads are reported separately and do not determine acceptance.",
+                "scope": "Observed current-version workloads only; not a universal speedup claim."
+              },
+              "limitations": [
+                "Shared-host wall-clock measurements are not statistical proof; repeat on an idle controlled host.",
+                "No allocation counts, code-size measurement, cross-target execution, or confidence intervals.",
+                "Base and current versions; owned read includes allocation/drop, write reuses buffers.",
+                "Setup and semantic roundtrip validation are outside timing; pair order alternates each sample.",
+                "Size savings and speed acceptance are separate; no universal speedup claim."
+              ],
+              "behavior_gate_passed": true,
+              "workloads": [
+                {
+                  "elements": 32,
+                  "version": 0,
+                  "iterations": 20000,
+                  "samples": 9,
+                  "custom_bytes": 421,
+                  "derive_bytes": 685,
+                  "savings_bytes": 264,
+                  "custom_ns": {
+                    "write": [
+                      24.29535,
+                      19.4753,
+                      21.64535,
+                      19.5053,
+                      19.2803,
+                      21.10535,
+                      19.4053,
+                      21.06535,
+                      19.40035
+                    ],
+                    "read_owned": [
+                      125.357,
+                      126.042,
+                      123.742,
+                      123.287,
+                      125.427,
+                      126.07705,
+                      123.387,
+                      125.352,
+                      125.11205
+                    ],
+                    "size": [
+                      2.29505,
+                      2.29005,
+                      2.29005,
+                      2.29005,
+                      2.29505,
+                      2.29505,
+                      2.295,
+                      2.29,
+                      2.29505
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      52.58085,
+                      50.69585,
+                      50.9858,
+                      51.26585,
+                      50.69585,
+                      52.69585,
+                      50.6958,
+                      50.6958,
+                      50.6958
+                    ],
+                    "read_owned": [
+                      138.41225,
+                      138.85725,
+                      143.0473,
+                      139.11225,
+                      139.25725,
+                      136.7372,
+                      139.0572,
+                      143.78735,
+                      142.21225
+                    ],
+                    "size": [
+                      2.01005,
+                      2.005,
+                      2.01005,
+                      2.005,
+                      2.005,
+                      2.01005,
+                      2.00505,
+                      2.00505,
+                      2.00505
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 19.5053,
+                      "derive_median_ns": 50.69585,
+                      "custom_min_ns": 19.2803,
+                      "custom_max_ns": 24.29535,
+                      "derive_min_ns": 50.6958,
+                      "derive_max_ns": 52.69585,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.599080762664507,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 125.352,
+                      "derive_median_ns": 139.11225,
+                      "custom_min_ns": 123.287,
+                      "custom_max_ns": 126.07705,
+                      "derive_min_ns": 136.7372,
+                      "derive_max_ns": 143.78735,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.1097728795711277,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.295,
+                      "derive_median_ns": 2.00505,
+                      "custom_min_ns": 2.29,
+                      "custom_max_ns": 2.29505,
+                      "derive_min_ns": 2.005,
+                      "derive_max_ns": 2.01005,
+                      "paired_custom_wins": 0,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 0.8736601307189543,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 32,
+                  "version": 2,
+                  "iterations": 20000,
+                  "samples": 9,
+                  "custom_bytes": 465,
+                  "derive_bytes": 729,
+                  "savings_bytes": 264,
+                  "custom_ns": {
+                    "write": [
+                      32.13555,
+                      26.2254,
+                      26.78545,
+                      26.65545,
+                      26.66545,
+                      27.0354,
+                      26.91545,
+                      27.80545,
+                      26.57045
+                    ],
+                    "read_owned": [
+                      153.36245,
+                      156.0775,
+                      153.9725,
+                      155.1325,
+                      155.9475,
+                      152.78745,
+                      151.29745,
+                      154.7225,
+                      153.04745
+                    ],
+                    "size": [
+                      2.29505,
+                      2.29,
+                      2.29005,
+                      2.29505,
+                      2.37,
+                      2.29505,
+                      2.295,
+                      2.29005,
+                      2.29
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      59.08095,
+                      58.14095,
+                      58.0309,
+                      59.26095,
+                      57.8559,
+                      59.866,
+                      59.32095,
+                      59.32095,
+                      57.9559
+                    ],
+                    "read_owned": [
+                      169.74775,
+                      169.0327,
+                      173.8928,
+                      170.81775,
+                      173.1728,
+                      170.37275,
+                      170.46775,
+                      170.38275,
+                      168.3977
+                    ],
+                    "size": [
+                      2.43505,
+                      2.43005,
+                      2.43005,
+                      2.43005,
+                      2.42005,
+                      2.42005,
+                      2.42005,
+                      2.41505,
+                      2.41505
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 26.78545,
+                      "derive_median_ns": 59.08095,
+                      "custom_min_ns": 26.2254,
+                      "custom_max_ns": 32.13555,
+                      "derive_min_ns": 57.8559,
+                      "derive_max_ns": 59.866,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.2057105630108884,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 153.9725,
+                      "derive_median_ns": 170.38275,
+                      "custom_min_ns": 151.29745,
+                      "custom_max_ns": 156.0775,
+                      "derive_min_ns": 168.3977,
+                      "derive_max_ns": 173.8928,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.1065790969166571,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.295,
+                      "derive_median_ns": 2.42005,
+                      "custom_min_ns": 2.29,
+                      "custom_max_ns": 2.37,
+                      "derive_min_ns": 2.41505,
+                      "derive_max_ns": 2.43505,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.054488017429194,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    }
+                  },
+                  "performance_accepted": true
+                },
+                {
+                  "elements": 512,
+                  "version": 0,
+                  "iterations": 2000,
+                  "samples": 9,
+                  "custom_bytes": 4261,
+                  "derive_bytes": 8365,
+                  "savings_bytes": 4104,
+                  "custom_ns": {
+                    "write": [
+                      215.6535,
+                      208.9535,
+                      210.6035,
+                      228.8535,
+                      209.4535,
+                      208.5035,
+                      219.0535,
+                      208.7535,
+                      230.8035
+                    ],
+                    "read_owned": [
+                      1245.22,
+                      1244.67,
+                      1233.87,
+                      1240.32,
+                      1228.6695,
+                      1263.7705,
+                      1230.37,
+                      1238.5195,
+                      1245.8705
+                    ],
+                    "size": [
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.35,
+                      2.3
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      677.361,
+                      684.511,
+                      682.611,
+                      675.761,
+                      675.4105,
+                      676.161,
+                      677.361,
+                      721.5615,
+                      781.7125
+                    ],
+                    "read_owned": [
+                      1637.4765,
+                      1644.0265,
+                      1648.7265,
+                      1642.7765,
+                      1644.8265,
+                      1642.1265,
+                      1675.277,
+                      1641.7765,
+                      1643.8765
+                    ],
+                    "size": [
+                      1.8,
+                      1.8,
+                      1.75,
+                      1.75,
+                      1.8,
+                      1.75,
+                      1.7505,
+                      1.75,
+                      1.8
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 210.6035,
+                      "derive_median_ns": 677.361,
+                      "custom_min_ns": 208.5035,
+                      "custom_max_ns": 230.8035,
+                      "derive_min_ns": 675.4105,
+                      "derive_max_ns": 781.7125,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 3.2162855792994893,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 1240.32,
+                      "derive_median_ns": 1643.8765,
+                      "custom_min_ns": 1228.6695,
+                      "custom_max_ns": 1263.7705,
+                      "derive_min_ns": 1637.4765,
+                      "derive_max_ns": 1675.277,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.3253648252063985,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.3,
+                      "derive_median_ns": 1.7505,
+                      "custom_min_ns": 2.3,
+                      "custom_max_ns": 2.35,
+                      "derive_min_ns": 1.75,
+                      "derive_max_ns": 1.8,
+                      "paired_custom_wins": 0,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 0.7610869565217392,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 512,
+                  "version": 2,
+                  "iterations": 2000,
+                  "samples": 9,
+                  "custom_bytes": 4785,
+                  "derive_bytes": 8889,
+                  "savings_bytes": 4104,
+                  "custom_ns": {
+                    "write": [
+                      283.7545,
+                      282.9045,
+                      284.4045,
+                      282.4545,
+                      283.3545,
+                      284.4045,
+                      281.5545,
+                      286.4045,
+                      285.3545
+                    ],
+                    "read_owned": [
+                      1358.422,
+                      1376.672,
+                      1355.522,
+                      1367.322,
+                      1367.322,
+                      1370.172,
+                      1372.4725,
+                      1363.422,
+                      1384.3725
+                    ],
+                    "size": [
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.35,
+                      2.3,
+                      2.3,
+                      2.3,
+                      2.3
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      755.362,
+                      758.3125,
+                      755.812,
+                      759.4125,
+                      767.9625,
+                      755.962,
+                      768.6125,
+                      795.013,
+                      785.113
+                    ],
+                    "read_owned": [
+                      1735.078,
+                      1740.328,
+                      1740.278,
+                      1740.528,
+                      1736.478,
+                      1738.428,
+                      1736.678,
+                      1721.8275,
+                      1737.378
+                    ],
+                    "size": [
+                      2.45,
+                      2.45,
+                      2.4,
+                      2.4,
+                      2.45,
+                      2.4505,
+                      2.45,
+                      2.4,
+                      2.4
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 283.7545,
+                      "derive_median_ns": 759.4125,
+                      "custom_min_ns": 281.5545,
+                      "custom_max_ns": 286.4045,
+                      "derive_min_ns": 755.362,
+                      "derive_max_ns": 795.013,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.676301168792037,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 1367.322,
+                      "derive_median_ns": 1737.378,
+                      "custom_min_ns": 1355.522,
+                      "custom_max_ns": 1384.3725,
+                      "derive_min_ns": 1721.8275,
+                      "derive_max_ns": 1740.528,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.27064290635271,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.3,
+                      "derive_median_ns": 2.45,
+                      "custom_min_ns": 2.3,
+                      "custom_max_ns": 2.35,
+                      "derive_min_ns": 2.4,
+                      "derive_max_ns": 2.4505,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.065217391304348,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    }
+                  },
+                  "performance_accepted": true
+                },
+                {
+                  "elements": 4096,
+                  "version": 0,
+                  "iterations": 300,
+                  "samples": 9,
+                  "custom_bytes": 32933,
+                  "derive_bytes": 65709,
+                  "savings_bytes": 32776,
+                  "custom_ns": {
+                    "write": [
+                      2297.036666666667,
+                      2295.7066666666665,
+                      2305.036666666667,
+                      2297.036666666667,
+                      2338.04,
+                      2343.3733333333334,
+                      2305.036666666667,
+                      2297.37,
+                      2300.036666666667
+                    ],
+                    "read_owned": [
+                      11187.846666666666,
+                      11125.51,
+                      11276.183333333332,
+                      11283.183333333332,
+                      11302.513333333334,
+                      11335.85,
+                      11145.176666666666,
+                      11246.846666666666,
+                      11235.85
+                    ],
+                    "size": [
+                      2.6666666666666665,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      6148.096666666666,
+                      6202.1,
+                      6198.1,
+                      6151.763333333333,
+                      6152.766666666666,
+                      6149.763333333333,
+                      6184.766666666666,
+                      6221.1,
+                      6206.766666666666
+                    ],
+                    "read_owned": [
+                      12851.54,
+                      12805.206666666667,
+                      12948.876666666667,
+                      12947.206666666667,
+                      12879.543333333333,
+                      12879.54,
+                      12860.543333333333,
+                      12868.873333333333,
+                      13016.873333333333
+                    ],
+                    "size": [
+                      2.3333333333333335,
+                      2.3366666666666664,
+                      2.0,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.0,
+                      2.0,
+                      2.3333333333333335,
+                      2.3333333333333335
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 2300.036666666667,
+                      "derive_median_ns": 6184.766666666666,
+                      "custom_min_ns": 2295.7066666666665,
+                      "custom_max_ns": 2343.3733333333334,
+                      "derive_min_ns": 6148.096666666666,
+                      "derive_max_ns": 6221.1,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.6889861176126173,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 11246.846666666666,
+                      "derive_median_ns": 12879.54,
+                      "custom_min_ns": 11125.51,
+                      "custom_max_ns": 11335.85,
+                      "derive_min_ns": 12805.206666666667,
+                      "derive_max_ns": 13016.873333333333,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.1451689866255848,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.3333333333333335,
+                      "derive_median_ns": 2.3333333333333335,
+                      "custom_min_ns": 2.3333333333333335,
+                      "custom_max_ns": 2.6666666666666665,
+                      "derive_min_ns": 2.0,
+                      "derive_max_ns": 2.3366666666666664,
+                      "paired_custom_wins": 1,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.0,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 4096,
+                  "version": 2,
+                  "iterations": 300,
+                  "samples": 9,
+                  "custom_bytes": 37041,
+                  "derive_bytes": 69817,
+                  "savings_bytes": 32776,
+                  "custom_ns": {
+                    "write": [
+                      3291.3866666666668,
+                      3338.3866666666668,
+                      3288.72,
+                      3290.0533333333333,
+                      3433.39,
+                      3292.72,
+                      3290.72,
+                      3292.3866666666668,
+                      3336.3866666666668
+                    ],
+                    "read_owned": [
+                      12240.53,
+                      12360.533333333333,
+                      12247.196666666667,
+                      12286.196666666667,
+                      12262.533333333333,
+                      12290.53,
+                      12344.533333333333,
+                      12272.866666666667,
+                      12198.863333333333
+                    ],
+                    "size": [
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      7242.45,
+                      7162.783333333334,
+                      7218.783333333334,
+                      7164.78,
+                      7165.113333333334,
+                      7256.783333333334,
+                      7239.45,
+                      7173.116666666667,
+                      7170.783333333334
+                    ],
+                    "read_owned": [
+                      13384.216666666667,
+                      13346.213333333333,
+                      13456.55,
+                      13348.55,
+                      13352.88,
+                      13342.883333333333,
+                      13327.88,
+                      13493.55,
+                      13326.88
+                    ],
+                    "size": [
+                      2.3333333333333335,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 3292.3866666666668,
+                      "derive_median_ns": 7173.116666666667,
+                      "custom_min_ns": 3288.72,
+                      "custom_max_ns": 3433.39,
+                      "derive_min_ns": 7162.783333333334,
+                      "derive_max_ns": 7256.783333333334,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.1786981278019186,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 12272.866666666667,
+                      "derive_median_ns": 13348.55,
+                      "custom_min_ns": 12198.863333333333,
+                      "custom_max_ns": 12360.533333333333,
+                      "derive_min_ns": 13326.88,
+                      "derive_max_ns": 13493.55,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.087647276105012,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.3333333333333335,
+                      "derive_median_ns": 2.3333333333333335,
+                      "custom_min_ns": 2.3333333333333335,
+                      "custom_max_ns": 2.3333333333333335,
+                      "derive_min_ns": 2.3333333333333335,
+                      "derive_max_ns": 2.6666666666666665,
+                      "paired_custom_wins": 2,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.0,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                }
+              ],
+              "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1",
+              "source_sha256": {
+                "src/lib.rs": "0cfbd8dbbc6cbb6d6cfbc4ee58e3e4ecf14c348d0e387fcdaf43ec5f6fb39b28"
+              }
+            }
+          }
+        },
+        {
+          "case": "create",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 29,
+            "failed": 0,
+            "total": 29,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "literal_base_has_no_struct_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "global_passes_follow_all_base_elements_without_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_historical_writers_default_later_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_historical_readers_ignore_future_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "equivalent_macro_values_and_exact_frame_savings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "option_specializations_are_preserved",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_accepts_only_complete_generations",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "a_started_vector_pass_cannot_default_remaining_entries",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_whole_pass_defaults_but_partial_string_fails",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_utf8_and_hostile_counts",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_suffix_is_ignored_with_full_external_consumption",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "externally_length_delimited_roots_do_not_steal_siblings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_containers_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "saved_base_order_survives_distinct_element_values",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_Point_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Point.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "nested_type_Entry_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Entry.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_behind_vec_mutation",
+              "passed": true,
+              "evidence": "logs/guard-behind_vec.log"
+            },
+            {
+              "text": "compile_guard_array_mutation",
+              "passed": true,
+              "evidence": "logs/guard-array.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_entry_argument_mutation",
+              "passed": true,
+              "evidence": "logs/guard-entry_argument.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": true,
+              "evidence": "logs/guard-option.log"
+            },
+            {
+              "text": "compile_guard_ticket_argument_mutation",
+              "passed": true,
+              "evidence": "logs/guard-ticket_argument.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "2baf48098fbf40b6354cf6f52015aa920bfe382bfa61b261d78e8f6af68feca5"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-create/without_skill/run-1",
+          "performance": {
+            "wire_revision": "global-root-passes-v2",
+            "case": "create",
+            "methods": [
+              "write",
+              "read_owned",
+              "size"
+            ],
+            "statistics": [
+              "paired_samples",
+              "min",
+              "median",
+              "max"
+            ],
+            "performance_acceptance": {
+              "passed": true,
+              "policy": "For EACH current-version (v2) workload with 32, 512, and 4096 Entry elements: custom encoding must be strictly smaller; write, read_owned, and size must EACH have a lower custom median and at least 7 custom wins in 9 paired samples. Base v0 workloads are reported separately and do not determine acceptance.",
+              "scope": "Observed current-version workloads only; not a universal speedup claim."
+            },
+            "limitations": [
+              "Shared-host wall-clock measurements are not statistical proof; repeat on an idle controlled host.",
+              "No allocation counts, code-size measurement, cross-target execution, or confidence intervals.",
+              "Base and current versions; owned read includes allocation/drop, write reuses buffers.",
+              "Setup and semantic roundtrip validation are outside timing; pair order alternates each sample.",
+              "Size savings and speed acceptance are separate; no universal speedup claim."
+            ],
+            "behavior_gate_passed": true,
+            "workloads": [
+              {
+                "elements": 32,
+                "version": 0,
+                "iterations_per_method": {
+                  "write": 20000,
+                  "read_owned": 20000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 421,
+                "derive_bytes": 685,
+                "savings_bytes": 264,
+                "custom_ns": {
+                  "write": [
+                    29.0153,
+                    22.9152,
+                    23.05025,
+                    22.9152,
+                    23.16025,
+                    22.9152,
+                    22.91525,
+                    22.6402,
+                    22.62525
+                  ],
+                  "read_owned": [
+                    82.25585,
+                    80.26585,
+                    83.1008,
+                    79.7908,
+                    79.7758,
+                    80.9558,
+                    80.3358,
+                    80.1258,
+                    81.0658
+                  ],
+                  "size": [
+                    2.311523,
+                    2.309623,
+                    2.310624,
+                    2.291123,
+                    2.308723,
+                    2.291123,
+                    2.308923,
+                    2.309123,
+                    2.291123
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    59.01555,
+                    55.2756,
+                    53.06555,
+                    50.6905,
+                    51.89555,
+                    55.89555,
+                    55.27555,
+                    56.2256,
+                    60.2006
+                  ],
+                  "read_owned": [
+                    141.3764,
+                    140.4514,
+                    140.01145,
+                    141.5314,
+                    139.99645,
+                    139.5264,
+                    140.77145,
+                    140.0414,
+                    140.54145
+                  ],
+                  "size": [
+                    1.746518,
+                    1.746317,
+                    2.00482,
+                    2.083221,
+                    2.217823,
+                    2.309223,
+                    2.110622,
+                    2.291123,
+                    2.309824
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 22.9152,
+                    "derive_median_ns": 55.2756,
+                    "custom_min_ns": 22.62525,
+                    "custom_max_ns": 29.0153,
+                    "derive_min_ns": 50.6905,
+                    "derive_max_ns": 60.2006,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.4121805613741096,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 80.3358,
+                    "derive_median_ns": 140.4514,
+                    "custom_min_ns": 79.7758,
+                    "custom_max_ns": 83.1008,
+                    "derive_min_ns": 139.5264,
+                    "derive_max_ns": 141.5314,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.748303993985247,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.308923,
+                    "derive_median_ns": 2.110622,
+                    "custom_min_ns": 2.291123,
+                    "custom_max_ns": 2.311523,
+                    "derive_min_ns": 1.746317,
+                    "derive_max_ns": 2.309824,
+                    "paired_custom_wins": 2,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 0.9141153689404108,
+                    "custom_faster_accepted": false,
+                    "verdict": "slower_or_equal_median"
+                  }
+                },
+                "performance_accepted": false
+              },
+              {
+                "elements": 32,
+                "version": 2,
+                "iterations_per_method": {
+                  "write": 20000,
+                  "read_owned": 20000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 465,
+                "derive_bytes": 729,
+                "savings_bytes": 264,
+                "custom_ns": {
+                  "write": [
+                    33.77535,
+                    32.65535,
+                    32.6953,
+                    33.80535,
+                    33.22535,
+                    32.67035,
+                    33.52035,
+                    34.25535,
+                    34.06535
+                  ],
+                  "read_owned": [
+                    120.0912,
+                    118.4512,
+                    120.6262,
+                    117.23615,
+                    122.44625,
+                    117.67615,
+                    118.1862,
+                    118.8262,
+                    119.2012
+                  ],
+                  "size": [
+                    2.306423,
+                    2.304123,
+                    2.292723,
+                    2.291324,
+                    2.304223,
+                    2.294723,
+                    2.305723,
+                    2.319524,
+                    2.294123
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    61.5206,
+                    64.68065,
+                    64.50065,
+                    65.51065,
+                    68.3357,
+                    67.28065,
+                    66.67565,
+                    68.8157,
+                    67.51565
+                  ],
+                  "read_owned": [
+                    169.6667,
+                    169.0567,
+                    170.18675,
+                    169.0267,
+                    171.34175,
+                    169.1617,
+                    170.27675,
+                    169.1867,
+                    169.5567
+                  ],
+                  "size": [
+                    2.430425,
+                    2.420024,
+                    2.432525,
+                    2.431224,
+                    2.426824,
+                    2.428825,
+                    2.440625,
+                    2.422924,
+                    2.442724
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 33.52035,
+                    "derive_median_ns": 66.67565,
+                    "custom_min_ns": 32.65535,
+                    "custom_max_ns": 34.25535,
+                    "derive_min_ns": 61.5206,
+                    "derive_max_ns": 68.8157,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.9891096005859128,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 118.8262,
+                    "derive_median_ns": 169.5567,
+                    "custom_min_ns": 117.23615,
+                    "custom_max_ns": 122.44625,
+                    "derive_min_ns": 169.0267,
+                    "derive_max_ns": 171.34175,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.4269302561219663,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.304123,
+                    "derive_median_ns": 2.430425,
+                    "custom_min_ns": 2.291324,
+                    "custom_max_ns": 2.319524,
+                    "derive_min_ns": 2.420024,
+                    "derive_max_ns": 2.442724,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.054815650032572,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  }
+                },
+                "performance_accepted": true
+              },
+              {
+                "elements": 512,
+                "version": 0,
+                "iterations_per_method": {
+                  "write": 2000,
+                  "read_owned": 2000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 4261,
+                "derive_bytes": 8365,
+                "savings_bytes": 4104,
+                "custom_ns": {
+                  "write": [
+                    235.2025,
+                    234.7525,
+                    234.8525,
+                    235.0025,
+                    235.6025,
+                    234.7525,
+                    234.9025,
+                    234.7025,
+                    234.8525
+                  ],
+                  "read_owned": [
+                    592.006,
+                    571.656,
+                    572.8055,
+                    584.606,
+                    575.006,
+                    563.756,
+                    568.8055,
+                    569.156,
+                    561.7055
+                  ],
+                  "size": [
+                    2.304624,
+                    2.291223,
+                    2.304223,
+                    2.302923,
+                    2.291123,
+                    2.303323,
+                    2.292423,
+                    2.310423,
+                    2.311523
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    676.357,
+                    685.1065,
+                    675.9065,
+                    684.957,
+                    749.4575,
+                    711.007,
+                    675.6565,
+                    684.807,
+                    684.5565
+                  ],
+                  "read_owned": [
+                    1633.4665,
+                    1644.3665,
+                    1645.2665,
+                    1636.3665,
+                    1662.3165,
+                    1683.267,
+                    1643.3665,
+                    1641.5165,
+                    1639.2165
+                  ],
+                  "size": [
+                    2.00482,
+                    2.191222,
+                    2.018421,
+                    2.291423,
+                    1.93972,
+                    1.746217,
+                    2.188223,
+                    2.295523,
+                    1.746518
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 234.8525,
+                    "derive_median_ns": 684.807,
+                    "custom_min_ns": 234.7025,
+                    "custom_max_ns": 235.6025,
+                    "derive_min_ns": 675.6565,
+                    "derive_max_ns": 749.4575,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.9159025345695704,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 571.656,
+                    "derive_median_ns": 1643.3665,
+                    "custom_min_ns": 561.7055,
+                    "custom_max_ns": 592.006,
+                    "derive_min_ns": 1633.4665,
+                    "derive_max_ns": 1683.267,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.87474722560421,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.303323,
+                    "derive_median_ns": 2.018421,
+                    "custom_min_ns": 2.291123,
+                    "custom_max_ns": 2.311523,
+                    "derive_min_ns": 1.746217,
+                    "derive_max_ns": 2.295523,
+                    "paired_custom_wins": 0,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 0.8763082728735831,
+                    "custom_faster_accepted": false,
+                    "verdict": "slower_or_equal_median"
+                  }
+                },
+                "performance_accepted": false
+              },
+              {
+                "elements": 512,
+                "version": 2,
+                "iterations_per_method": {
+                  "write": 2000,
+                  "read_owned": 2000,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 4785,
+                "derive_bytes": 8889,
+                "savings_bytes": 4104,
+                "custom_ns": {
+                  "write": [
+                    315.653,
+                    316.103,
+                    312.5035,
+                    313.003,
+                    313.3535,
+                    313.9535,
+                    314.203,
+                    313.403,
+                    314.853
+                  ],
+                  "read_owned": [
+                    687.5065,
+                    708.3075,
+                    715.107,
+                    702.257,
+                    693.757,
+                    683.757,
+                    694.207,
+                    701.557,
+                    691.757
+                  ],
+                  "size": [
+                    2.291623,
+                    2.292923,
+                    2.308323,
+                    2.310622,
+                    2.291223,
+                    2.306123,
+                    2.309523,
+                    2.292423,
+                    2.311822
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    776.408,
+                    756.1075,
+                    763.5075,
+                    753.8575,
+                    763.7575,
+                    754.7575,
+                    763.4075,
+                    754.708,
+                    761.908
+                  ],
+                  "read_owned": [
+                    1734.0675,
+                    1731.3175,
+                    1733.4675,
+                    1722.9675,
+                    1735.8675,
+                    1788.818,
+                    1731.1175,
+                    1733.717,
+                    1731.467
+                  ],
+                  "size": [
+                    2.438824,
+                    2.437124,
+                    2.426624,
+                    2.438824,
+                    2.435424,
+                    2.420124,
+                    2.426524,
+                    2.438924,
+                    2.425524
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 313.9535,
+                    "derive_median_ns": 761.908,
+                    "custom_min_ns": 312.5035,
+                    "custom_max_ns": 316.103,
+                    "derive_min_ns": 753.8575,
+                    "derive_max_ns": 776.408,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.4268179841919264,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 694.207,
+                    "derive_median_ns": 1733.4675,
+                    "custom_min_ns": 683.757,
+                    "custom_max_ns": 715.107,
+                    "derive_min_ns": 1722.9675,
+                    "derive_max_ns": 1788.818,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.497046990306926,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.306123,
+                    "derive_median_ns": 2.435424,
+                    "custom_min_ns": 2.291223,
+                    "custom_max_ns": 2.311822,
+                    "derive_min_ns": 2.420124,
+                    "derive_max_ns": 2.438924,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.056068561824326,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  }
+                },
+                "performance_accepted": true
+              },
+              {
+                "elements": 4096,
+                "version": 0,
+                "iterations_per_method": {
+                  "write": 300,
+                  "read_owned": 300,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 32933,
+                "derive_bytes": 65709,
+                "savings_bytes": 32776,
+                "custom_ns": {
+                  "write": [
+                    2306.0233333333335,
+                    2305.3566666666666,
+                    2308.3566666666666,
+                    2302.0233333333335,
+                    2300.0233333333335,
+                    2307.3533333333335,
+                    2425.36,
+                    2301.6866666666665,
+                    2301.0233333333335
+                  ],
+                  "read_owned": [
+                    5896.39,
+                    5863.056666666666,
+                    6154.3966666666665,
+                    5891.39,
+                    5881.393333333333,
+                    5882.056666666666,
+                    5902.06,
+                    5908.056666666666,
+                    5932.06
+                  ],
+                  "size": [
+                    2.345323,
+                    2.291122,
+                    2.338523,
+                    2.341624,
+                    2.291122,
+                    2.326023,
+                    2.320023,
+                    2.291223,
+                    2.319623
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    6168.393333333333,
+                    6402.73,
+                    6348.3966666666665,
+                    6168.7266666666665,
+                    6267.393333333333,
+                    6163.73,
+                    6169.7266666666665,
+                    6267.73,
+                    6168.7266666666665
+                  ],
+                  "read_owned": [
+                    12889.13,
+                    12865.126666666667,
+                    12837.793333333333,
+                    12820.793333333333,
+                    12827.126666666667,
+                    12823.793333333333,
+                    12814.46,
+                    12812.46,
+                    13097.796666666667
+                  ],
+                  "size": [
+                    2.00482,
+                    2.223122,
+                    2.265623,
+                    2.291122,
+                    2.344223,
+                    2.294123,
+                    2.260822,
+                    2.321623,
+                    2.03092
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 2305.3566666666666,
+                    "derive_median_ns": 6169.7266666666665,
+                    "custom_min_ns": 2300.0233333333335,
+                    "custom_max_ns": 2425.36,
+                    "derive_min_ns": 6163.73,
+                    "derive_max_ns": 6402.73,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.676256891558356,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 5896.39,
+                    "derive_median_ns": 12827.126666666667,
+                    "custom_min_ns": 5863.056666666666,
+                    "custom_max_ns": 6154.3966666666665,
+                    "derive_min_ns": 12812.46,
+                    "derive_max_ns": 13097.796666666667,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.175420327805092,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.320023,
+                    "derive_median_ns": 2.265623,
+                    "custom_min_ns": 2.291122,
+                    "custom_max_ns": 2.345323,
+                    "derive_min_ns": 2.00482,
+                    "derive_max_ns": 2.344223,
+                    "paired_custom_wins": 2,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 0.9765519565969821,
+                    "custom_faster_accepted": false,
+                    "verdict": "slower_or_equal_median"
+                  }
+                },
+                "performance_accepted": false
+              },
+              {
+                "elements": 4096,
+                "version": 2,
+                "iterations_per_method": {
+                  "write": 300,
+                  "read_owned": 300,
+                  "size": 1000000
+                },
+                "samples": 9,
+                "custom_bytes": 37041,
+                "derive_bytes": 69817,
+                "savings_bytes": 32776,
+                "custom_ns": {
+                  "write": [
+                    3303.7,
+                    3304.366666666667,
+                    3301.366666666667,
+                    3305.03,
+                    3300.0333333333333,
+                    3303.7,
+                    3402.366666666667,
+                    3305.366666666667,
+                    3302.7
+                  ],
+                  "read_owned": [
+                    6979.403333333334,
+                    7067.403333333334,
+                    6914.4,
+                    7092.403333333334,
+                    7034.403333333334,
+                    7208.403333333334,
+                    7307.74,
+                    6966.736666666667,
+                    7063.736666666667
+                  ],
+                  "size": [
+                    2.291422,
+                    2.324723,
+                    2.309523,
+                    2.291423,
+                    2.308423,
+                    2.308423,
+                    2.291322,
+                    2.291322,
+                    2.303123
+                  ]
+                },
+                "derive_ns": {
+                  "write": [
+                    7126.07,
+                    7260.403333333334,
+                    7225.736666666667,
+                    7221.406666666667,
+                    7219.073333333334,
+                    7124.736666666667,
+                    7127.736666666667,
+                    7242.736666666667,
+                    7229.07
+                  ],
+                  "read_owned": [
+                    13398.13,
+                    13360.8,
+                    13313.133333333333,
+                    13724.47,
+                    13364.796666666667,
+                    13349.133333333333,
+                    13387.133333333333,
+                    13380.13,
+                    13385.8
+                  ],
+                  "size": [
+                    2.450624,
+                    2.421124,
+                    2.425524,
+                    2.436824,
+                    2.441624,
+                    2.418624,
+                    2.438024,
+                    2.439925,
+                    2.423424
+                  ]
+                },
+                "size_smaller": true,
+                "comparison": {
+                  "write": {
+                    "custom_median_ns": 3303.7,
+                    "derive_median_ns": 7221.406666666667,
+                    "custom_min_ns": 3300.0333333333333,
+                    "custom_max_ns": 3402.366666666667,
+                    "derive_min_ns": 7124.736666666667,
+                    "derive_max_ns": 7260.403333333334,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 2.1858542442312157,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "read_owned": {
+                    "custom_median_ns": 7063.736666666667,
+                    "derive_median_ns": 13380.13,
+                    "custom_min_ns": 6914.4,
+                    "custom_max_ns": 7307.74,
+                    "derive_min_ns": 13313.133333333333,
+                    "derive_max_ns": 13724.47,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.8942000008494086,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  },
+                  "size": {
+                    "custom_median_ns": 2.303123,
+                    "derive_median_ns": 2.436824,
+                    "custom_min_ns": 2.291322,
+                    "custom_max_ns": 2.324723,
+                    "derive_min_ns": 2.418624,
+                    "derive_max_ns": 2.450624,
+                    "paired_custom_wins": 9,
+                    "paired_samples": 9,
+                    "derive_over_custom_median": 1.0580520449841369,
+                    "custom_faster_accepted": true,
+                    "verdict": "faster_by_policy"
+                  }
+                },
+                "performance_accepted": true
+              }
+            ],
+            "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1",
+            "source_sha256": {
+              "src/lib.rs": "2baf48098fbf40b6354cf6f52015aa920bfe382bfa61b261d78e8f6af68feca5"
+            }
+          },
+          "superseded_performance": {
+            "performance-short-size-samples.json": {
+              "wire_revision": "global-root-passes-v2",
+              "case": "create",
+              "methods": [
+                "write",
+                "read_owned",
+                "size"
+              ],
+              "statistics": [
+                "paired_samples",
+                "min",
+                "median",
+                "max"
+              ],
+              "performance_acceptance": {
+                "passed": false,
+                "policy": "For EACH current-version (v2) workload with 32, 512, and 4096 Entry elements: custom encoding must be strictly smaller; write, read_owned, and size must EACH have a lower custom median and at least 7 custom wins in 9 paired samples. Base v0 workloads are reported separately and do not determine acceptance.",
+                "scope": "Observed current-version workloads only; not a universal speedup claim."
+              },
+              "limitations": [
+                "Shared-host wall-clock measurements are not statistical proof; repeat on an idle controlled host.",
+                "No allocation counts, code-size measurement, cross-target execution, or confidence intervals.",
+                "Base and current versions; owned read includes allocation/drop, write reuses buffers.",
+                "Setup and semantic roundtrip validation are outside timing; pair order alternates each sample.",
+                "Size savings and speed acceptance are separate; no universal speedup claim."
+              ],
+              "behavior_gate_passed": true,
+              "workloads": [
+                {
+                  "elements": 32,
+                  "version": 0,
+                  "iterations": 20000,
+                  "samples": 9,
+                  "custom_bytes": 421,
+                  "derive_bytes": 685,
+                  "savings_bytes": 264,
+                  "custom_ns": {
+                    "write": [
+                      21.60025,
+                      22.85025,
+                      23.01025,
+                      21.5652,
+                      21.25025,
+                      22.8402,
+                      22.89025,
+                      21.5502,
+                      21.20025
+                    ],
+                    "read_owned": [
+                      82.23585,
+                      83.39585,
+                      82.3758,
+                      84.31585,
+                      84.08585,
+                      80.06585,
+                      82.0008,
+                      84.74585,
+                      84.83085
+                    ],
+                    "size": [
+                      2.005,
+                      2.005,
+                      2.00505,
+                      2.00505,
+                      2.01,
+                      2.005,
+                      2.00505,
+                      2.00505,
+                      2.01
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      54.99055,
+                      57.78055,
+                      54.99055,
+                      55.74055,
+                      54.98555,
+                      55.14055,
+                      54.99055,
+                      55.11055,
+                      56.82555
+                    ],
+                    "read_owned": [
+                      141.8364,
+                      141.44145,
+                      142.12145,
+                      144.35645,
+                      142.7414,
+                      144.37145,
+                      137.8514,
+                      145.88145,
+                      140.94645
+                    ],
+                    "size": [
+                      1.76,
+                      1.75005,
+                      1.755,
+                      1.755,
+                      1.755,
+                      1.75005,
+                      1.755,
+                      1.76,
+                      1.75505
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 21.60025,
+                      "derive_median_ns": 55.11055,
+                      "custom_min_ns": 21.20025,
+                      "custom_max_ns": 23.01025,
+                      "derive_min_ns": 54.98555,
+                      "derive_max_ns": 57.78055,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.5513848219349318,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 83.39585,
+                      "derive_median_ns": 142.12145,
+                      "custom_min_ns": 80.06585,
+                      "custom_max_ns": 84.83085,
+                      "derive_min_ns": 137.8514,
+                      "derive_max_ns": 145.88145,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.7041789249704873,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.00505,
+                      "derive_median_ns": 1.755,
+                      "custom_min_ns": 2.005,
+                      "custom_max_ns": 2.01,
+                      "derive_min_ns": 1.75005,
+                      "derive_max_ns": 1.76,
+                      "paired_custom_wins": 0,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 0.875289893020124,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 32,
+                  "version": 2,
+                  "iterations": 20000,
+                  "samples": 9,
+                  "custom_bytes": 465,
+                  "derive_bytes": 729,
+                  "savings_bytes": 264,
+                  "custom_ns": {
+                    "write": [
+                      38.2554,
+                      34.06535,
+                      34.05035,
+                      33.95535,
+                      34.31035,
+                      34.13035,
+                      34.10535,
+                      34.1653,
+                      34.19535
+                    ],
+                    "read_owned": [
+                      106.04105,
+                      106.7511,
+                      108.17105,
+                      109.2811,
+                      108.23605,
+                      107.4661,
+                      106.10105,
+                      110.75615,
+                      109.7561
+                    ],
+                    "size": [
+                      2.21005,
+                      2.205,
+                      2.20505,
+                      2.195,
+                      2.20505,
+                      2.2,
+                      2.205,
+                      2.20005,
+                      2.205
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      71.0607,
+                      72.5607,
+                      63.30065,
+                      57.57055,
+                      57.6106,
+                      62.4406,
+                      63.38065,
+                      62.99565,
+                      62.40065
+                    ],
+                    "read_owned": [
+                      171.18175,
+                      170.5867,
+                      171.78675,
+                      173.20175,
+                      175.3768,
+                      172.4317,
+                      172.82675,
+                      170.2067,
+                      171.4467
+                    ],
+                    "size": [
+                      2.435,
+                      2.43005,
+                      2.425,
+                      2.42505,
+                      2.425,
+                      2.42505,
+                      2.43005,
+                      2.43,
+                      2.43005
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 34.13035,
+                      "derive_median_ns": 62.99565,
+                      "custom_min_ns": 33.95535,
+                      "custom_max_ns": 38.2554,
+                      "derive_min_ns": 57.57055,
+                      "derive_max_ns": 72.5607,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.8457370053339621,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 108.17105,
+                      "derive_median_ns": 171.78675,
+                      "custom_min_ns": 106.04105,
+                      "custom_max_ns": 110.75615,
+                      "derive_min_ns": 170.2067,
+                      "derive_max_ns": 175.3768,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.5881028241844748,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.205,
+                      "derive_median_ns": 2.43,
+                      "custom_min_ns": 2.195,
+                      "custom_max_ns": 2.21005,
+                      "derive_min_ns": 2.425,
+                      "derive_max_ns": 2.435,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.1020408163265307,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    }
+                  },
+                  "performance_accepted": true
+                },
+                {
+                  "elements": 512,
+                  "version": 0,
+                  "iterations": 2000,
+                  "samples": 9,
+                  "custom_bytes": 4261,
+                  "derive_bytes": 8365,
+                  "savings_bytes": 4104,
+                  "custom_ns": {
+                    "write": [
+                      223.202,
+                      213.002,
+                      212.452,
+                      227.452,
+                      211.052,
+                      212.752,
+                      224.7025,
+                      212.902,
+                      210.1525
+                    ],
+                    "read_owned": [
+                      673.1565,
+                      675.857,
+                      677.557,
+                      678.857,
+                      705.857,
+                      684.8565,
+                      679.807,
+                      704.807,
+                      695.157
+                    ],
+                    "size": [
+                      2.05,
+                      2.0,
+                      2.0,
+                      2.0,
+                      2.0,
+                      2.0,
+                      2.0,
+                      2.05,
+                      2.05
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      763.5075,
+                      754.158,
+                      758.1075,
+                      754.158,
+                      759.658,
+                      755.7575,
+                      756.6575,
+                      756.2575,
+                      758.6075
+                    ],
+                    "read_owned": [
+                      1672.367,
+                      1718.567,
+                      1702.667,
+                      1711.567,
+                      1648.1165,
+                      1691.9675,
+                      1672.717,
+                      1687.667,
+                      1683.417
+                    ],
+                    "size": [
+                      1.75,
+                      1.75,
+                      1.8,
+                      1.75,
+                      1.8,
+                      1.8,
+                      1.75,
+                      1.75,
+                      1.8
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 212.902,
+                      "derive_median_ns": 756.6575,
+                      "custom_min_ns": 210.1525,
+                      "custom_max_ns": 227.452,
+                      "derive_min_ns": 754.158,
+                      "derive_max_ns": 763.5075,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 3.5540178110116396,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 679.807,
+                      "derive_median_ns": 1687.667,
+                      "custom_min_ns": 673.1565,
+                      "custom_max_ns": 705.857,
+                      "derive_min_ns": 1648.1165,
+                      "derive_max_ns": 1718.567,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.4825678464623047,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.0,
+                      "derive_median_ns": 1.75,
+                      "custom_min_ns": 2.0,
+                      "custom_max_ns": 2.05,
+                      "derive_min_ns": 1.75,
+                      "derive_max_ns": 1.8,
+                      "paired_custom_wins": 0,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 0.875,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 512,
+                  "version": 2,
+                  "iterations": 2000,
+                  "samples": 9,
+                  "custom_bytes": 4785,
+                  "derive_bytes": 8889,
+                  "savings_bytes": 4104,
+                  "custom_ns": {
+                    "write": [
+                      289.853,
+                      293.053,
+                      307.053,
+                      292.253,
+                      299.253,
+                      298.303,
+                      290.553,
+                      298.803,
+                      292.303
+                    ],
+                    "read_owned": [
+                      795.108,
+                      798.408,
+                      792.308,
+                      792.508,
+                      796.058,
+                      814.908,
+                      792.408,
+                      814.608,
+                      805.8085
+                    ],
+                    "size": [
+                      2.2005,
+                      2.25,
+                      2.2,
+                      2.9,
+                      2.9,
+                      2.85,
+                      2.85,
+                      2.85,
+                      2.9
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      764.7075,
+                      755.2075,
+                      771.758,
+                      780.658,
+                      785.2575,
+                      779.808,
+                      756.2575,
+                      754.3075,
+                      754.0575
+                    ],
+                    "read_owned": [
+                      1727.9675,
+                      1729.6175,
+                      1728.0675,
+                      1735.7675,
+                      1798.418,
+                      1746.3175,
+                      1734.6675,
+                      1728.0675,
+                      1737.667
+                    ],
+                    "size": [
+                      2.45,
+                      2.45,
+                      2.45,
+                      2.4,
+                      2.45,
+                      2.45,
+                      2.45,
+                      2.45,
+                      2.45
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 293.053,
+                      "derive_median_ns": 764.7075,
+                      "custom_min_ns": 289.853,
+                      "custom_max_ns": 307.053,
+                      "derive_min_ns": 754.0575,
+                      "derive_max_ns": 785.2575,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.609451191422712,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 796.058,
+                      "derive_median_ns": 1734.6675,
+                      "custom_min_ns": 792.308,
+                      "custom_max_ns": 814.908,
+                      "derive_min_ns": 1727.9675,
+                      "derive_max_ns": 1798.418,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.179071751053315,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.85,
+                      "derive_median_ns": 2.45,
+                      "custom_min_ns": 2.2,
+                      "custom_max_ns": 2.9,
+                      "derive_min_ns": 2.4,
+                      "derive_max_ns": 2.45,
+                      "paired_custom_wins": 3,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 0.8596491228070176,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 4096,
+                  "version": 0,
+                  "iterations": 300,
+                  "samples": 9,
+                  "custom_bytes": 32933,
+                  "derive_bytes": 65709,
+                  "savings_bytes": 32776,
+                  "custom_ns": {
+                    "write": [
+                      2299.0233333333335,
+                      2299.69,
+                      2313.0233333333335,
+                      2299.69,
+                      2302.69,
+                      2365.0233333333335,
+                      2297.69,
+                      2537.693333333333,
+                      2333.69
+                    ],
+                    "read_owned": [
+                      7006.403333333334,
+                      6957.403333333334,
+                      6865.736666666667,
+                      6891.07,
+                      6877.736666666667,
+                      6862.07,
+                      7150.406666666667,
+                      7069.736666666667,
+                      7097.07
+                    ],
+                    "size": [
+                      2.0,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.0,
+                      2.0,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      6172.3966666666665,
+                      6243.06,
+                      6356.733333333334,
+                      6172.7266666666665,
+                      6267.3966666666665,
+                      6157.0633333333335,
+                      6180.06,
+                      6234.0633333333335,
+                      6207.0633333333335
+                    ],
+                    "read_owned": [
+                      13239.466666666667,
+                      13378.133333333333,
+                      13251.133333333333,
+                      13231.466666666667,
+                      12870.13,
+                      12843.126666666667,
+                      13185.796666666667,
+                      13293.803333333333,
+                      12836.13
+                    ],
+                    "size": [
+                      2.0,
+                      2.0,
+                      1.6666666666666667,
+                      1.6666666666666667,
+                      2.0,
+                      2.0,
+                      2.0,
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 2302.69,
+                      "derive_median_ns": 6207.0633333333335,
+                      "custom_min_ns": 2297.69,
+                      "custom_max_ns": 2537.693333333333,
+                      "derive_min_ns": 6157.0633333333335,
+                      "derive_max_ns": 6356.733333333334,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.695570542857846,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 6957.403333333334,
+                      "derive_median_ns": 13231.466666666667,
+                      "custom_min_ns": 6862.07,
+                      "custom_max_ns": 7150.406666666667,
+                      "derive_min_ns": 12836.13,
+                      "derive_max_ns": 13378.133333333333,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.9017823220444792,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.0,
+                      "derive_median_ns": 2.0,
+                      "custom_min_ns": 2.0,
+                      "custom_max_ns": 2.3333333333333335,
+                      "derive_min_ns": 1.6666666666666667,
+                      "derive_max_ns": 2.0,
+                      "paired_custom_wins": 0,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.0,
+                      "custom_faster_accepted": false,
+                      "verdict": "slower_or_equal_median"
+                    }
+                  },
+                  "performance_accepted": false
+                },
+                {
+                  "elements": 4096,
+                  "version": 2,
+                  "iterations": 300,
+                  "samples": 9,
+                  "custom_bytes": 37041,
+                  "derive_bytes": 69817,
+                  "savings_bytes": 32776,
+                  "custom_ns": {
+                    "write": [
+                      3359.366666666667,
+                      3298.0333333333333,
+                      3297.366666666667,
+                      3353.0333333333333,
+                      3383.0333333333333,
+                      3301.7,
+                      3321.366666666667,
+                      3361.366666666667,
+                      3303.7
+                    ],
+                    "read_owned": [
+                      8096.746666666667,
+                      7874.08,
+                      9320.76,
+                      8002.413333333333,
+                      7988.746666666667,
+                      7843.413333333333,
+                      7942.08,
+                      7889.746666666667,
+                      7917.08
+                    ],
+                    "size": [
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.3333333333333335,
+                      2.0,
+                      2.3333333333333335
+                    ]
+                  },
+                  "derive_ns": {
+                    "write": [
+                      7130.736666666667,
+                      7165.74,
+                      7423.406666666667,
+                      7165.406666666667,
+                      7177.073333333334,
+                      7224.74,
+                      7192.403333333334,
+                      7131.74,
+                      7114.406666666667
+                    ],
+                    "read_owned": [
+                      13421.136666666667,
+                      13371.133333333333,
+                      14412.48,
+                      13328.466666666667,
+                      13313.133333333333,
+                      13269.466666666667,
+                      13344.466666666667,
+                      13323.466666666667,
+                      13314.466666666667
+                    ],
+                    "size": [
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665,
+                      2.6666666666666665
+                    ]
+                  },
+                  "size_smaller": true,
+                  "comparison": {
+                    "write": {
+                      "custom_median_ns": 3321.366666666667,
+                      "derive_median_ns": 7165.74,
+                      "custom_min_ns": 3297.366666666667,
+                      "custom_max_ns": 3383.0333333333333,
+                      "derive_min_ns": 7114.406666666667,
+                      "derive_max_ns": 7423.406666666667,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 2.1574673076344073,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "read_owned": {
+                      "custom_median_ns": 7942.08,
+                      "derive_median_ns": 13328.466666666667,
+                      "custom_min_ns": 7843.413333333333,
+                      "custom_max_ns": 9320.76,
+                      "derive_min_ns": 13269.466666666667,
+                      "derive_max_ns": 14412.48,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.678208563331856,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    },
+                    "size": {
+                      "custom_median_ns": 2.3333333333333335,
+                      "derive_median_ns": 2.6666666666666665,
+                      "custom_min_ns": 2.0,
+                      "custom_max_ns": 2.3333333333333335,
+                      "derive_min_ns": 2.6666666666666665,
+                      "derive_max_ns": 2.6666666666666665,
+                      "paired_custom_wins": 9,
+                      "paired_samples": 9,
+                      "derive_over_custom_median": 1.1428571428571428,
+                      "custom_faster_accepted": true,
+                      "verdict": "faster_by_policy"
+                    }
+                  },
+                  "performance_accepted": true
+                }
+              ],
+              "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1",
+              "source_sha256": {
+                "src/lib.rs": "2baf48098fbf40b6354cf6f52015aa920bfe382bfa61b261d78e8f6af68feca5"
+              }
+            }
+          }
+        },
+        {
+          "case": "decisions",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 27,
+            "failed": 0,
+            "total": 27,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "Case 4: Identifies width changes, deletions, and tag reuse as incompatible; preserves old slots or requires migration.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=4: Preserves u32/deleted slots/tag2; requires recovered history; contrasts unknown legacy base payloads with deferred future payloads."
+            },
+            {
+              "text": "Case 4: Rejects unknown legacy base-payload tags without a boundary; distinguishes the stronger deferred-payload guarantee of a fresh global-pass protocol.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=4: Preserves u32/deleted slots/tag2; requires recovered history; contrasts unknown legacy base payloads with deferred future payloads."
+            },
+            {
+              "text": "Case 4: Requires historical evidence and explicit migration or reader-policy decisions before claiming compatibility.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=4: Preserves u32/deleted slots/tag2; requires recovered history; contrasts unknown legacy base payloads with deferred future payloads."
+            },
+            {
+              "text": "Case 5: Identifies recursive hashing and opaque foreign definition as separate blockers.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=5: Separates recursive hash evaluation from opaque vendor coverage; allows only a deliberately frozen framed leaf, not invisible root-wide evolution."
+            },
+            {
+              "text": "Case 5: Does not invent a transitive guarantee from TypeId, size_of, copied types, or nominal Vec hashes.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=5: Separates recursive hash evaluation from opaque vendor coverage; allows only a deliberately frozen framed leaf, not invisible root-wide evolution."
+            },
+            {
+              "text": "Case 5: Separates a deliberately adopted opaque framed leaf from an unsupported root-wide schema traversal.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=5: Separates recursive hash evaluation from opaque vendor coverage; allows only a deliberately frozen framed leaf, not invisible root-wide evolution."
+            },
+            {
+              "text": "Case 6: Distinguishes per-instantiation guards from a universal unconditional generic guarantee.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=6: Distinguishes lazy generic associated constants from concrete unconditional assertions; rejects Vec<Root> consumption without per-root bounds."
+            },
+            {
+              "text": "Case 6: Explains when Rust evaluates assertions and requests concrete supported roots if needed.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=6: Distinguishes lazy generic associated constants from concrete unconditional assertions; rejects Vec<Root> consumption without per-root bounds."
+            },
+            {
+              "text": "Case 6: Rejects Vec/root composition without external element boundaries; returning buf.len consumes all siblings.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=6: Distinguishes lazy generic associated constants from concrete unconditional assertions; rejects Vec<Root> consumption without per-root bounds."
+            },
+            {
+              "text": "Case 7: Preserves write_option/read_option/size_option_version, bool codes, and the NonZero zero niche without extra Clone bounds.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=7: Forwards all three option hooks and exact bool/NonZero niches; pass4 writes option/vector shape and x/y, then pass6 writes only z."
+            },
+            {
+              "text": "Case 7: At pass4 writes option/vector shape and both x/y once; at pass6 replays saved elements for z without repeated shape.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=7: Forwards all three option hooks and exact bool/NonZero niches; pass4 writes option/vector shape and x/y, then pass6 writes only z."
+            },
+            {
+              "text": "Case 7: Defaults an absent whole later pass but rejects partial entries after that pass starts.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=7: Forwards all three option hooks and exact bool/NonZero niches; pass4 writes option/vector shape and x/y, then pass6 writes only z."
+            },
+            {
+              "text": "Case 8: Rejects raw memory copying and retains bool validity plus little-endian wire operations.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=8: Rejects raw Vec memory/padding; identifies bincode fixed-int LE and u64 counts versus DefaultOptions; checks the old reader's trailing policy."
+            },
+            {
+              "text": "Case 8: Uses actual bincode 1.3.3 serialize with fixed integers and u64 container lengths; DefaultOptions alone is not equivalent.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=8: Rejects raw Vec memory/padding; identifies bincode fixed-int LE and u64 counts versus DefaultOptions; checks the old reader's trailing policy."
+            },
+            {
+              "text": "Case 8: States explicit allow/reject trailing-byte policy and appends the child addition after the complete old graph.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=8: Rejects raw Vec memory/padding; identifies bincode fixed-int LE and u64 counts versus DefaultOptions; checks the old reader's trailing policy."
+            },
+            {
+              "text": "Case 9: Explains hash limits for attributes/discriminants/defaults and distinguishes source-position tags from explicit integer codes.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=9: Separates structural hashes from tags/defaults; requires saved base entry order or consistently frozen canonical order, with compatibility checks."
+            },
+            {
+              "text": "Case 9: Rejects replay using independently randomized map iteration or rebuilt insertion order.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=9: Separates structural hashes from tags/defaults; requires saved base entry order or consistently frozen canonical order, with compatibility checks."
+            },
+            {
+              "text": "Case 9: Requires a saved base entry sequence or documented canonical ordering shared by every pass, plus wire/default tests.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=9: Separates structural hashes from tags/defaults; requires saved base entry order or consistently frozen canonical order, with compatibility checks."
+            },
+            {
+              "text": "Case 10: Preserves unframed one-byte codes7/255/13; rejects a silent historical migration to framed enums.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=10: Preserves one-byte codes and complete-code fallback; rejects legacy unknown adjacent payloads; permits deferred-future-payload fallback only under that protocol."
+            },
+            {
+              "text": "Case 10: Defaults a complete unknown Code but rejects empty/truncated input.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=10: Preserves one-byte codes and complete-code fallback; rejects legacy unknown adjacent payloads; permits deferred-future-payload fallback only under that protocol."
+            },
+            {
+              "text": "Case 10: Rejects unknown legacy Mode tags; allows future-tag fallback only under a frozen no-payload-in-known-passes protocol, not from Rust Default alone.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=10: Preserves one-byte codes and complete-code fallback; rejects legacy unknown adjacent payloads; permits deferred-future-payload fallback only under that protocol."
+            },
+            {
+              "text": "Case 11: Handles Vec<()> by count without an element loop and bounds allocations/checked arithmetic for hostile nonzero element counts.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=11: Distinguishes zero-byte passes from EOF; continues to String pass2; requires pure/deterministic defaults and checked resource limits."
+            },
+            {
+              "text": "Case 11: Traverses empty pass1 to read pass2; does not infer a zero-sized field's presence from byte availability.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=11: Distinguishes zero-byte passes from EOF; continues to String pass2; requires pure/deterministic defaults and checked resource limits."
+            },
+            {
+              "text": "Case 11: Requires pure/default-equivalent zero-byte fields or reports the unmet guarantee for side-effecting defaults; exact whole-pass boundaries may default, started nonempty passes must complete.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=11: Distinguishes zero-byte passes from EOF; continues to String pass2; requires pure/deterministic defaults and checked resource limits."
+            },
+            {
+              "text": "Case 12: Uses frozen historical wire order and introductions above the released whole-graph maximum, not source order.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=12: Preserves historical global order and allocates above9; all base elements precede extensions; externally splits roots before buf.len() consumption."
+            },
+            {
+              "text": "Case 12: Writes every base element before any later element fields and reuses saved order without repeating counts/tags.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=12: Preserves historical global order and allocates above9; all base elements precede extensions; externally splits roots before buf.len() consumption."
+            },
+            {
+              "text": "Case 12: Explains version gaps and externally splits concatenated blobs; returns the supplied blob length rather than discovering an internal boundary.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=12: Preserves historical global order and allocates above9; all base elements precede extensions; externally splits roots before buf.len() consumption."
+            }
+          ],
+          "source_sha256": {
+            "outputs/answers.json": "585411aa0cded6b39b4b031c4b1ae5b43ebaa871093ee40a5eb8d147fa486d85"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-decisions/with_skill/run-1"
+        },
+        {
+          "case": "decisions",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 25,
+            "failed": 2,
+            "total": 27,
+            "pass_rate": 0.9259259259259259
+          },
+          "expectations": [
+            {
+              "text": "Case 4: Identifies width changes, deletions, and tag reuse as incompatible; preserves old slots or requires migration.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=4: Preserves u32/deleted slots/tag2; requires recovered history; contrasts unknown legacy base payloads with deferred future payloads."
+            },
+            {
+              "text": "Case 4: Rejects unknown legacy base-payload tags without a boundary; distinguishes the stronger deferred-payload guarantee of a fresh global-pass protocol.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=4: Preserves u32/deleted slots/tag2; requires recovered history; contrasts unknown legacy base payloads with deferred future payloads."
+            },
+            {
+              "text": "Case 4: Requires historical evidence and explicit migration or reader-policy decisions before claiming compatibility.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=4: Preserves u32/deleted slots/tag2; requires recovered history; contrasts unknown legacy base payloads with deferred future payloads."
+            },
+            {
+              "text": "Case 5: Identifies recursive hashing and opaque foreign definition as separate blockers.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=5: Separates recursive hash evaluation from opaque vendor coverage; allows only a deliberately frozen framed leaf, not invisible root-wide evolution."
+            },
+            {
+              "text": "Case 5: Does not invent a transitive guarantee from TypeId, size_of, copied types, or nominal Vec hashes.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=5: Separates recursive hash evaluation from opaque vendor coverage; allows only a deliberately frozen framed leaf, not invisible root-wide evolution."
+            },
+            {
+              "text": "Case 5: Separates a deliberately adopted opaque framed leaf from an unsupported root-wide schema traversal.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=5: Separates recursive hash evaluation from opaque vendor coverage; allows only a deliberately frozen framed leaf, not invisible root-wide evolution."
+            },
+            {
+              "text": "Case 6: Distinguishes per-instantiation guards from a universal unconditional generic guarantee.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=6: Distinguishes lazy generic associated constants from concrete unconditional assertions; rejects Vec<Root> consumption without per-root bounds."
+            },
+            {
+              "text": "Case 6: Explains when Rust evaluates assertions and requests concrete supported roots if needed.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=6: Distinguishes lazy generic associated constants from concrete unconditional assertions; rejects Vec<Root> consumption without per-root bounds."
+            },
+            {
+              "text": "Case 6: Rejects Vec/root composition without external element boundaries; returning buf.len consumes all siblings.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=6: Distinguishes lazy generic associated constants from concrete unconditional assertions; rejects Vec<Root> consumption without per-root bounds."
+            },
+            {
+              "text": "Case 7: Preserves write_option/read_option/size_option_version, bool codes, and the NonZero zero niche without extra Clone bounds.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=7: Forwards all three option hooks and exact bool/NonZero niches; pass4 writes option/vector shape and x/y, then pass6 writes only z."
+            },
+            {
+              "text": "Case 7: At pass4 writes option/vector shape and both x/y once; at pass6 replays saved elements for z without repeated shape.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=7: Forwards all three option hooks and exact bool/NonZero niches; pass4 writes option/vector shape and x/y, then pass6 writes only z."
+            },
+            {
+              "text": "Case 7: Defaults an absent whole later pass but rejects partial entries after that pass starts.",
+              "passed": false,
+              "evidence": "outputs/answers.json id=7: Explains shape/field birth but omits defaults for absent z and rejection of partial later entries."
+            },
+            {
+              "text": "Case 8: Rejects raw memory copying and retains bool validity plus little-endian wire operations.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=8: Rejects raw Vec memory/padding; identifies bincode fixed-int LE and u64 counts versus DefaultOptions; checks the old reader's trailing policy."
+            },
+            {
+              "text": "Case 8: Uses actual bincode 1.3.3 serialize with fixed integers and u64 container lengths; DefaultOptions alone is not equivalent.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=8: Rejects raw Vec memory/padding; identifies bincode fixed-int LE and u64 counts versus DefaultOptions; checks the old reader's trailing policy."
+            },
+            {
+              "text": "Case 8: States explicit allow/reject trailing-byte policy and appends the child addition after the complete old graph.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=8: Rejects raw Vec memory/padding; identifies bincode fixed-int LE and u64 counts versus DefaultOptions; checks the old reader's trailing policy."
+            },
+            {
+              "text": "Case 9: Explains hash limits for attributes/discriminants/defaults and distinguishes source-position tags from explicit integer codes.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=9: Separates structural hashes from tags/defaults; requires saved base entry order or consistently frozen canonical order, with compatibility checks."
+            },
+            {
+              "text": "Case 9: Rejects replay using independently randomized map iteration or rebuilt insertion order.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=9: Separates structural hashes from tags/defaults; requires saved base entry order or consistently frozen canonical order, with compatibility checks."
+            },
+            {
+              "text": "Case 9: Requires a saved base entry sequence or documented canonical ordering shared by every pass, plus wire/default tests.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=9: Separates structural hashes from tags/defaults; requires saved base entry order or consistently frozen canonical order, with compatibility checks."
+            },
+            {
+              "text": "Case 10: Preserves unframed one-byte codes7/255/13; rejects a silent historical migration to framed enums.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=10: Preserves one-byte codes and complete-code fallback; rejects legacy unknown adjacent payloads; permits deferred-future-payload fallback only under that protocol."
+            },
+            {
+              "text": "Case 10: Defaults a complete unknown Code but rejects empty/truncated input.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=10: Preserves one-byte codes and complete-code fallback; rejects legacy unknown adjacent payloads; permits deferred-future-payload fallback only under that protocol."
+            },
+            {
+              "text": "Case 10: Rejects unknown legacy Mode tags; allows future-tag fallback only under a frozen no-payload-in-known-passes protocol, not from Rust Default alone.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=10: Preserves one-byte codes and complete-code fallback; rejects legacy unknown adjacent payloads; permits deferred-future-payload fallback only under that protocol."
+            },
+            {
+              "text": "Case 11: Handles Vec<()> by count without an element loop and bounds allocations/checked arithmetic for hostile nonzero element counts.",
+              "passed": false,
+              "evidence": "outputs/answers.json id=11: Explains valid positive unit counts and resource limits but does not state count-only construction without an element loop."
+            },
+            {
+              "text": "Case 11: Traverses empty pass1 to read pass2; does not infer a zero-sized field's presence from byte availability.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=11: Distinguishes zero-byte passes from EOF; continues to String pass2; requires pure/deterministic defaults and checked resource limits."
+            },
+            {
+              "text": "Case 11: Requires pure/default-equivalent zero-byte fields or reports the unmet guarantee for side-effecting defaults; exact whole-pass boundaries may default, started nonempty passes must complete.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=11: Distinguishes zero-byte passes from EOF; continues to String pass2; requires pure/deterministic defaults and checked resource limits."
+            },
+            {
+              "text": "Case 12: Uses frozen historical wire order and introductions above the released whole-graph maximum, not source order.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=12: Preserves historical global order and allocates above9; all base elements precede extensions; externally splits roots before buf.len() consumption."
+            },
+            {
+              "text": "Case 12: Writes every base element before any later element fields and reuses saved order without repeating counts/tags.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=12: Preserves historical global order and allocates above9; all base elements precede extensions; externally splits roots before buf.len() consumption."
+            },
+            {
+              "text": "Case 12: Explains version gaps and externally splits concatenated blobs; returns the supplied blob length rather than discovering an internal boundary.",
+              "passed": true,
+              "evidence": "outputs/answers.json id=12: Preserves historical global order and allocates above9; all base elements precede extensions; externally splits roots before buf.len() consumption."
+            }
+          ],
+          "source_sha256": {
+            "outputs/answers.json": "025125dd3986b91a67bef10480bbfbfdd8993d7cf1f976e0b1f820045299dabb"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-decisions/without_skill/run-1"
+        },
+        {
+          "case": "enums",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 35,
+            "failed": 0,
+            "total": 35,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "literal_base_has_no_root_enum_or_block_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "named_fields_follow_the_complete_base_vector",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_subtree_birth_includes_earlier_descendant_fields_once",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_historical_writers_and_readers_all_versions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "known_base_variants_and_strict_values",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "added_variant_earlier_writes_reject_but_earlier_reads_default",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_future_tags_before_siblings_have_no_known_pass_payload",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "added_payloads_are_deferred_after_all_base_and_named_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "added_started_pass_requires_all_payloads_and_new_shape",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_strict_tag_is_not_defaulted",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_complete_code_defaults_and_preserves_vector_siblings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_known_payloads_and_missing_codes_never_default",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "started_named_pass_cannot_default_later_vector_entries",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "zero_byte_pass_does_not_hide_nonempty_later_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_extension_has_a_zero_byte_checksum_pass",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_accepts_only_complete_generations",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_and_hostile_counts_fail",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_future_tag_in_new_subtree_preserves_known_birth_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "block_has_exact_unframed_le_bytes_and_accepts_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_suffix_is_ignored_with_full_external_consumption",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "externally_length_delimited_frames_preserve_following_roots",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "saved_enum_topology_controls_replay_order",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_Block_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Block.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "nested_type_Extension_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Extension.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_variant_mutation",
+              "passed": true,
+              "evidence": "logs/guard-variant.log"
+            },
+            {
+              "text": "compile_guard_new_subtree_mutation",
+              "passed": true,
+              "evidence": "logs/guard-new_subtree.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": true,
+              "evidence": "logs/guard-option.log"
+            },
+            {
+              "text": "compile_guard_new_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-new_container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "198b95503849afd40ddd5250e0c3bb07ee9c200019fa10fb49acb4d123344176"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-enums/with_skill/run-1"
+        },
+        {
+          "case": "enums",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 35,
+            "failed": 0,
+            "total": 35,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "literal_base_has_no_root_enum_or_block_frames",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "named_fields_follow_the_complete_base_vector",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "new_subtree_birth_includes_earlier_descendant_fields_once",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "independent_historical_writers_and_readers_all_versions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "known_base_variants_and_strict_values",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "added_variant_earlier_writes_reject_but_earlier_reads_default",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_future_tags_before_siblings_have_no_known_pass_payload",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "added_payloads_are_deferred_after_all_base_and_named_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "added_started_pass_requires_all_payloads_and_new_shape",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_strict_tag_is_not_defaulted",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_complete_code_defaults_and_preserves_vector_siblings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_known_payloads_and_missing_codes_never_default",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "started_named_pass_cannot_default_later_vector_entries",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "zero_byte_pass_does_not_hide_nonempty_later_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "absent_extension_has_a_zero_byte_checksum_pass",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_accepts_only_complete_generations",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_option_and_hostile_counts_fail",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "unknown_future_tag_in_new_subtree_preserves_known_birth_fields",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "block_has_exact_unframed_le_bytes_and_accepts_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_suffix_is_ignored_with_full_external_consumption",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "externally_length_delimited_frames_preserve_following_roots",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "saved_enum_topology_controls_replay_order",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_Block_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Block.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "nested_type_Extension_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Extension.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_variant_mutation",
+              "passed": true,
+              "evidence": "logs/guard-variant.log"
+            },
+            {
+              "text": "compile_guard_new_subtree_mutation",
+              "passed": true,
+              "evidence": "logs/guard-new_subtree.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            },
+            {
+              "text": "compile_guard_option_mutation",
+              "passed": true,
+              "evidence": "logs/guard-option.log"
+            },
+            {
+              "text": "compile_guard_new_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-new_container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "b0321a28394e2a51846bd768bed412d2149323c9bc16d1b5baa4a326cf5a2677"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-enums/without_skill/run-1"
+        },
+        {
+          "case": "update",
+          "configuration": "with_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 25,
+            "failed": 0,
+            "total": 25,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "literal_bincode_base_has_fixed_int_u64_count",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frozen_v0_v1_bytes_are_unchanged",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "real_bincode_old_writer_defaults_global_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frozen_old_writers_default_child_and_root_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frozen_old_readers_ignore_new_suffix_and_consume_external_blob",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "bincode_reader_has_explicit_trailing_byte_policy",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "bincode_stream_reader_stops_before_published_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "child_addition_follows_enabled_not_child_base",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs_match_independent_oracle",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_accepts_only_complete_global_generations",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_stamp_batch_never_defaults",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_note_length_and_payload_never_default",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_bool_utf8_and_u64_lengths_fail",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_suffix_uses_external_boundary_not_an_internal_length",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "externally_delimited_packet_sequence_preserves_siblings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_values_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_Child_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Child.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "historical_implementation_unchanged",
+              "passed": true,
+              "evidence": "Byte-for-byte comparison with evals/fixtures/update.rs."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "93e58d46ae456dc75f1eb81253c7c64f2d7f5dd39add749e38bbd1a7a55b2a45"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-update/with_skill/run-1"
+        },
+        {
+          "case": "update",
+          "configuration": "without_skill",
+          "run": "run-1",
+          "summary": {
+            "passed": 25,
+            "failed": 0,
+            "total": 25,
+            "pass_rate": 1.0
+          },
+          "expectations": [
+            {
+              "text": "literal_bincode_base_has_fixed_int_u64_count",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frozen_v0_v1_bytes_are_unchanged",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "real_bincode_old_writer_defaults_global_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frozen_old_writers_default_child_and_root_additions",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "frozen_old_readers_ignore_new_suffix_and_consume_external_blob",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "bincode_reader_has_explicit_trailing_byte_policy",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "bincode_stream_reader_stops_before_published_passes",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "child_addition_follows_enabled_not_child_base",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "all_writer_reader_version_pairs_match_independent_oracle",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "every_truncation_accepts_only_complete_global_generations",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_stamp_batch_never_defaults",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "partial_note_length_and_payload_never_default",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "invalid_bool_utf8_and_u64_lengths_fail",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "future_suffix_uses_external_boundary_not_an_internal_length",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "externally_delimited_packet_sequence_preserves_siblings",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "empty_values_and_unaligned_input",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "malformed_input_smoke_does_not_panic",
+              "passed": true,
+              "evidence": "logs/contract.log (cargo exit 0)"
+            },
+            {
+              "text": "candidate_formatting",
+              "passed": true,
+              "evidence": "logs/format.log"
+            },
+            {
+              "text": "candidate_lints",
+              "passed": true,
+              "evidence": "logs/clippy.log"
+            },
+            {
+              "text": "unchanged_production_build",
+              "passed": true,
+              "evidence": "logs/unchanged.log"
+            },
+            {
+              "text": "nested_type_Child_remains_without_codec",
+              "passed": true,
+              "evidence": "logs/no-nested-codec-Child.log: trait bound applied to the actual public child type."
+            },
+            {
+              "text": "historical_implementation_unchanged",
+              "passed": true,
+              "evidence": "Byte-for-byte comparison with evals/fixtures/update.rs."
+            },
+            {
+              "text": "compile_guard_root_mutation",
+              "passed": true,
+              "evidence": "logs/guard-root.log"
+            },
+            {
+              "text": "compile_guard_embedded_mutation",
+              "passed": true,
+              "evidence": "logs/guard-embedded.log"
+            },
+            {
+              "text": "compile_guard_container_mutation",
+              "passed": true,
+              "evidence": "logs/guard-container.log"
+            }
+          ],
+          "source_sha256": {
+            "src/lib.rs": "7ccf92ae8031a130647a03ecb4903dccc5c6de55bd5ed443928bb607f08e66e0"
+          },
+          "artifact_path": "target/skill-evals/custom-vercodable-append-workspace/iteration-1/eval-update/without_skill/run-1"
+        }
+      ]
+    }
+  ]
+}

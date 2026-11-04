@@ -64,6 +64,17 @@ If short samples vary, retain those results before collecting longer CPU-pinned 
 Runs without `--measure` perform behavior checks only.
 These workloads assess helper cost, not a universal speedup or end-to-end application performance.
 
+## Agent plugin
+
+The `vercode` plugin provides the `custom-vercodable` skill for handwritten codecs.
+It uses the complete type graph, append-only data passes, and one composable frame per custom value.
+Create and update modes include compatibility checks and compile-time type-change guards.
+
+The `vercode-tools` marketplace lives in this repository.
+See the [plugin guide](vercode/agent-plugin/README.md) for local and marketplace installation.
+Cargo includes the plugin files in the crate but does not install or activate them.
+The [maintainer evaluations](skill-evals/custom-vercodable/README.md) remain outside the installable bundle.
+
 ## Serialization errors in 0.6
 
 `serialize`, `serialize_version`, and `serialize_to_vec` now return `Result`.

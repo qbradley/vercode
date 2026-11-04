@@ -1,0 +1,77 @@
+{
+  "skill_name": "custom-vercodable",
+  "wire_revision": "global-root-frame-v3",
+  "status": "unrun",
+  "iterations": [],
+  "notes": [
+    "No fresh end-to-end codec-generation or codec-versus-macro performance campaign was run for this revision.",
+    "Harness smoke checks do not count as model skill evaluations.",
+    "Historical global-root-passes-v2 scores and speedups are preserved in historical-external-results.json.",
+    "Older per-node evidence remains in legacy-framed-results.json."
+  ],
+  "typed_field_checks": {
+    "crate_version": "0.7.1",
+    "release_status": "unreleased",
+    "focused_integration_tests": 6,
+    "workspace_checks": "passed",
+    "python_harness_and_package_tests": 32,
+    "benchmark": {
+      "target": "x86_64-unknown-linux-gnu",
+      "maximum_median_ratio": 1.05,
+      "paired_samples": 9,
+      "iterations_per_sample": 20000000,
+      "passed_workloads": 6,
+      "total_workloads": 6,
+      "binary_sha256": "1f33d5bcc3a0fdaecca85d816654eecd126df8fa9fa9031682d7939cad39fecf",
+      "earlier_failed_workloads": {
+        "initial": 3,
+        "shared-loop": 2
+      },
+      "local_artifacts": "target/wire-field-evidence/",
+      "limits": [
+        "The longer trial used the unchanged corrected binary; shorter failed trials remain recorded.",
+        "This measures helper non-regression, not a codec speedup or end-to-end application performance.",
+        "Other targets were not measured or executed."
+      ]
+    },
+    "decision_evaluations": {
+      "model": "gpt-6-astra",
+      "case_ids": [14, 15],
+      "iterations": 2,
+      "batches_per_configuration_per_iteration": 1,
+      "final_with_skill": {"passed": 8, "total": 9},
+      "final_parent_skill": {"passed": 8, "total": 9},
+      "local_artifacts": "target/skill-evals/custom-vercodable-wire-fields-workspace/",
+      "limits": [
+        "Both prompts share one context per batch, not independent model samples.",
+        "The constructor contract and evidence questions changed between iterations.",
+        "Both final outputs omit the explicit pointer-width warning but use fixed-width fields.",
+        "These decision sketches do not validate generated codecs, routing, or performance.",
+        "Unavailable token and duration telemetry is omitted."
+      ]
+    }
+  },
+  "macro_wire_field_integration": {
+    "crate_version": "0.8.0",
+    "release_status": "unreleased",
+    "macro_dependency": "=0.8.0",
+    "old_caret_range_rejects_new_macros": true,
+    "workspace_checks": "passed",
+    "python_harness_and_package_tests": 32,
+    "helper_benchmark": {
+      "target": "x86_64-unknown-linux-gnu",
+      "maximum_median_ratio": 1.05,
+      "paired_samples": 9,
+      "iterations_per_sample": 20000000,
+      "passed_workloads": 6,
+      "total_workloads": 6,
+      "binary_sha256": "ea3841a291e44f4a54407ccc53233c895bd496f87160f61b46809343a046368b"
+    },
+    "local_artifacts": "target/wire-field-evidence/macro-integration-0.8.0/",
+    "limits": [
+      "This rebuild measures helper/manual ratios, not before/after macro performance.",
+      "No new model or routing trial was run for the version-only skill prompt update.",
+      "The earlier 0.7.1 evidence remains historical."
+    ]
+  }
+}

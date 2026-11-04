@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vercode",
+  "version": "0.8.0",
+  "description": "Create and update handwritten VerCodable codecs with global append-only passes, full-frame consumption, and type-change guards.",
+  "author": {
+    "name": "VerCode contributors"
+  },
+  "repository": "https://github.com/microsoft/vercode",
+  "license": "MIT",
+  "keywords": ["rust", "vercode", "serialization", "schema-evolution"]
+}
