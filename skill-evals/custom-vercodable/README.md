@@ -5,7 +5,14 @@ The suite evaluates root-wide append-only payloads inside one composable frame.
 It does not require byte equality with the macro format.
 It requires semantic equivalence, exact consumption, smaller fresh encodings, and separately measured speed goals.
 
-**No fresh model trials or performance campaign validate this revision yet.**
+**Paired create/update trials now cover the original and shorter skill.**
+Both configurations passed 59/59 automated checks.
+The shorter skill's create codec met all nine current-version speed goals against macros.
+The original skill's codec met six and missed all three size-speed goals.
+Decision answers contain some omitted details, including one additional omission with the shorter skill.
+These small samples do not establish universal equivalence.
+See [results.md](results.md#shorter-skill-comparison) for the comparison and its limits.
+
 The previous 89/89 scores and speedups are historical external-only evidence.
 They remain in [historical-external-results.md](historical-external-results.md).
 The older per-node results remain in [legacy-framed-results.md](legacy-framed-results.md).
@@ -188,6 +195,17 @@ Save responses as an `answers.json` array of `{id, answer}` objects.
 Grade each answer against the catalog expectations.
 If prompts share one agent context, report one batch trial per configuration.
 Do not count prompts as independent model samples.
+
+### Short implementation briefs
+
+[brief-evals.json](brief-evals.json) provides create/update requests that state outcomes and wire choices without repeating the skill's implementation procedure.
+They use the existing fixtures and independent checks.
+Each brief also selects existing decision cases for the same agent to answer after implementation.
+Those answers share context with the implementation and are not independent trials.
+
+For a paired comparison, give fresh agents identical briefs and questions with separate frozen skill snapshots.
+Record the actual brief and question IDs in each run's metadata instead of retaining the longer prepared prompt.
+Keep correctness, guard coverage, manual review, and performance outcomes separate.
 
 `trigger-evals.json` contains twenty routing prompts.
 Routing requires observing actual skill invocation, not matching answer keywords.

@@ -1,10 +1,108 @@
 {
   "skill_name": "custom-vercodable",
   "wire_revision": "global-root-frame-v3",
-  "status": "unrun",
-  "iterations": [],
+  "status": "partial-paired-evaluation",
+  "iterations": [
+    {
+      "name": "skill-concision",
+      "model": "gpt-6-astra",
+      "cases": ["create", "update"],
+      "runs_per_case_per_configuration": 1,
+      "briefs": "brief-evals.json",
+      "snapshots": {
+        "old_skill": {
+          "words": 7635,
+          "entry_words": 1777,
+          "sha256": {
+            "SKILL.md": "e1509aea2874de31d075609b6dda8fbf6f18c8e730d09191066c0c8a0c18acb7",
+            "references/adoption.md": "09ce6fca8a149db67566c2b1fdc7111936341984ba9e65995f5356d008d2c683",
+            "references/implementation.md": "aba3f3a4a26a2f10a9ce9df3573598892780fa970a12cb5b558111e8a96a59aa",
+            "references/type-guards.md": "d0fe28132546bfc355b006d7317cb7c04b3033f972f1c0882bbe343be1cb0ed9",
+            "references/wire-contract.md": "c70648b04eeafdefb86aa7844e9019538b239ba8c37269b905ce47af52048c38"
+          }
+        },
+        "with_skill": {
+          "words": 3009,
+          "entry_words": 756,
+          "sha256": {
+            "SKILL.md": "fc6aa73e41e78c59f8074e86a69d46f01b1ed64445e1fd6e2df413f81b1b0656",
+            "references/adoption.md": "4c91150fe4e47abe807a30a95cf090c4860594daba0229b43a560d3901c98b1a",
+            "references/implementation.md": "6616cecab90d6ea7c86a50b60019978175bebdaadfd2ff3e6f275a5dacc06090",
+            "references/type-guards.md": "3329a1af6ced578797a1145b9732ddd4efd2bc2ffabf93a4816c872fe8d12c6d",
+            "references/wire-contract.md": "f4f897a7b86211f47338889ad9c91d017c678643037b939ef28f7543680ab3c7"
+          }
+        }
+      },
+      "word_reduction_percent": 60.6,
+      "automated_checks": {
+        "with_skill": {"create": 31, "update": 28, "passed": 59, "total": 59},
+        "old_skill": {"create": 31, "update": 28, "passed": 59, "total": 59}
+      },
+      "manual_source_checks": {
+        "with_skill": {"passed": 10, "total": 10},
+        "old_skill": {"passed": 10, "total": 10}
+      },
+      "decision_checks": {
+        "case_ids": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        "with_skill": {"passed": 38, "total": 42},
+        "old_skill": {"passed": 39, "total": 42},
+        "shared_omissions": [
+          "Case 9: source-position enum tags versus explicit integer codes.",
+          "Case 13: explicit discussion of compiler store combining.",
+          "Case 14: target-width usize/isize wire warning; proposed fields are fixed-width."
+        ],
+        "additional_revised_omission": "Case 13: separate/combined optimization trials, individual-variant/mixture workloads, and explicit prior equivalence/short-buffer checks.",
+        "failure_kind": "omitted_detail"
+      },
+      "create_performance": {
+        "policy": "Each v2 workload: smaller encoding; each method has a lower custom median and at least 7 wins in 9 paired samples.",
+        "target": "x86_64-unknown-linux-gnu",
+        "compiler": "rustc 1.99.1, LLVM 23.1.1",
+        "paired_samples": 9,
+        "measurement_order": ["with_skill", "old_skill"],
+        "with_skill": {"passed_speed_goals": 9, "total_speed_goals": 9},
+        "old_skill": {"passed_speed_goals": 6, "total_speed_goals": 9, "failed_method": "size"},
+        "ratio_definition": "macro median / custom median",
+        "workloads": [
+          {
+            "entries": 32,
+            "custom_bytes": 469,
+            "macro_bytes": 729,
+            "with_skill": {"write": 2.120, "read_owned": 1.289, "size": 1.064},
+            "old_skill": {"write": 1.987, "read_owned": 1.025, "size": 0.849}
+          },
+          {
+            "entries": 512,
+            "custom_bytes": 4789,
+            "macro_bytes": 8889,
+            "with_skill": {"write": 2.598, "read_owned": 3.300, "size": 1.057},
+            "old_skill": {"write": 2.558, "read_owned": 1.896, "size": 0.847}
+          },
+          {
+            "entries": 4096,
+            "custom_bytes": 37045,
+            "macro_bytes": 69817,
+            "with_skill": {"write": 2.169, "read_owned": 2.829, "size": 1.057},
+            "old_skill": {"write": 2.179, "read_owned": 1.638, "size": 0.850}
+          }
+        ]
+      },
+      "python_harness_and_package_tests": 33,
+      "local_artifacts": "target/skill-evals/custom-vercodable-concision-workspace/",
+      "viewer": "iteration-1/review.html",
+      "limits": [
+        "One sample per case/configuration cannot establish universal equivalence or causality.",
+        "Decision questions share implementation contexts and can reinforce the short briefs.",
+        "Compound decision scores include omitted procedural details and are separate from correctness.",
+        "Candidates ran sequentially against their own macro baselines, not as paired candidate-versus-candidate timings.",
+        "Shared-host timings have no profile-based cost attribution.",
+        "Executable enum trials, routing observations, update timings, and other targets remain unrun.",
+        "Unavailable agent token and duration telemetry is omitted."
+      ]
+    }
+  ],
   "notes": [
-    "No fresh end-to-end codec-generation or codec-versus-macro performance campaign was run for this revision.",
+    "Fresh paired create/update trials and create performance measurements provide limited evidence for this revision.",
     "Harness smoke checks do not count as model skill evaluations.",
     "Historical global-root-passes-v2 scores and speedups are preserved in historical-external-results.json.",
     "Older per-node evidence remains in legacy-framed-results.json."

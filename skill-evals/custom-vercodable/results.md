@@ -1,7 +1,9 @@
 # Composable-frame evaluation status
 
 The active wire revision is `global-root-frame-v3`.
-No fresh end-to-end codec-generation trials or codec-versus-macro performance measurements validate this revision yet.
+Fresh paired create/update trials cover the original and shorter skill.
+Both configurations passed all 59 automated checks.
+The [shorter-skill comparison](#shorter-skill-comparison) separates correctness, manual review, decision answers, and measured codec performance.
 Harness smoke checks are not model evaluations.
 
 The active suite requires exact consumption of one future-inclusive frame.
@@ -76,7 +78,7 @@ The remaining failure is an omitted warning, not an observed invalid encoding.
 These small decision batches do not establish an advantage over the parent skill.
 
 The outputs are sketches, not executed generated codecs.
-End-to-end codec-generation and routing trials remain unrun for this revision.
+At this stage, end-to-end codec-generation and routing trials remained unrun for this revision.
 Local answers, grading evidence, immutable skill snapshots, and static review reports are in
 `target/skill-evals/custom-vercodable-wire-fields-workspace/`.
 The final viewer is `iteration-2/review.html` in that directory.
@@ -103,3 +105,90 @@ The version-only skill prompt update did not trigger new model or routing trials
 The earlier 0.7.1 records remain unchanged.
 Local frozen sources, binary identity, raw samples, assembly, and dependency checks are in
 `target/wire-field-evidence/macro-integration-0.8.0/`.
+
+## Shorter-skill comparison
+
+The revision replaces repeated procedures with goals, compatibility contracts, and reasons.
+It retains specialized knowledge about framing, pass boundaries, enum payloads, and incomplete structural hashes.
+Conditional references supply the details.
+The source warning, historical evidence requirements, and performance goals remain.
+The skill name and routing description are unchanged.
+
+| Scope | Original words | Revised words | Reduction |
+|---|---:|---:|---:|
+| `SKILL.md` | 1,777 | 756 | 57.5% |
+| Complete five-file bundle | 7,635 | 3,009 | 60.6% |
+
+Counts use whitespace-separated words, including code and frontmatter.
+References also became shorter, rather than receiving displaced instructions.
+The predefined goal was at least 50% reduction across the complete bundle.
+
+### Paired implementations
+
+Four fresh GPT-6 Astra agents received frozen skill snapshots and matching [short briefs](brief-evals.json).
+Each configuration had one create trial and one update trial.
+The briefs specify outcomes and wire choices without prescribing cursor or guard implementations.
+Agents could inspect dependencies, but not other candidates or the independent checks.
+Scored sources remain unchanged.
+
+| Evidence | Original | Revised |
+|---|---:|---:|
+| Create automated checks | 31/31 | 31/31 |
+| Update automated checks | 28/28 | 28/28 |
+| Manual source checks | 10/10 | 10/10 |
+| Existing compound decision expectations | 39/42 | 38/42 |
+
+Automated checks cover independent historical bytes, future-inclusive consumption, malformed inputs, option encodings, public child inlining, production compilation, lint, and structural mutations.
+Both update candidates preserve the historical source and match the actual bincode base.
+Manual review covers warnings, durable update information, consistent wire plans, public models, and honest performance claims.
+
+The revised update candidate shares a constant-time length calculation between write and size.
+The original backpatches its extension length.
+Both preserve the contract without a graph-sizing traversal.
+This illustrates implementation freedom without a measured update-performance claim.
+
+Decision questions share the implementation context and can reinforce the brief.
+They are not twelve independent trials.
+Both configurations omit three rubric details: source-position versus explicit-code tags, compiler store combining, and the typed-field pointer-width warning.
+All proposed integer fields use fixed widths.
+The revised optimization answer also omits separate/combined trials and individual-variant/mixture coverage.
+These failures remain recorded as omitted details, not unsafe proposals.
+They do not support a claim of uniformly equal or better answers.
+
+### Create performance
+
+After all implementation and grading jobs finished, each create candidate ran sequentially against equivalent macro-derived values.
+The existing release harness used nine order-balanced pairs per workload.
+Each speed goal requires a lower custom median and at least seven paired wins.
+Only current-version workloads determine acceptance.
+The benchmark includes complete framing and owned-read allocation costs.
+
+| Entries | Custom / macro bytes | Original write | Original read | Original size | Revised write | Revised read | Revised size |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 32 | 469 / 729 | 1.99 | 1.03 | 0.85 | 2.12 | 1.29 | 1.06 |
+| 512 | 4,789 / 8,889 | 2.56 | 1.90 | 0.85 | 2.60 | 3.30 | 1.06 |
+| 4,096 | 37,045 / 69,817 | 2.18 | 1.64 | 0.85 | 2.17 | 2.83 | 1.06 |
+
+Ratios are **macro median / custom median**.
+Values greater than one favor the custom codec.
+Both candidates produce the same sizes and save exactly `4 + 8*N` bytes.
+The revised candidate passed all nine speed goals, with nine paired wins each.
+The original passed six goals and failed all three size goals, with zero paired size wins.
+No failed trial was discarded or rerun.
+
+These are shared-host observations, not proof that shorter instructions caused better performance.
+Each candidate has its own macro baseline, not a paired comparison between candidates.
+The host was `x86_64-unknown-linux-gnu`, with `rustc 1.99.1` and LLVM 23.1.1.
+No profile establishes a cause for the differences.
+Update timings, executable enum trials, other targets, and routing trials remain unrun.
+Exact agent token and duration telemetry was unavailable.
+
+### Evidence
+
+Local artifacts are in `target/skill-evals/custom-vercodable-concision-workspace/`.
+They include frozen snapshots, file hashes, the comparison policy, actual prompts, all four projects, compiler logs, assessments, and raw timings.
+`results.json` records both snapshot identities and the separate outcome totals.
+`iteration-1/review.html` contains the paired outputs and automated benchmark view.
+Each output includes its separate decision, manual, and applicable codec-performance reports.
+The harness/package suite passed all 33 checks.
+Skill validation, Markdown links, JSON parsing, and whitespace checks passed.

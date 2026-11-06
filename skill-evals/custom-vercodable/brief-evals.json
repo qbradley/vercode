@@ -1,0 +1,17 @@
+{
+  "skill_name": "custom-vercodable",
+  "wire_revision": "global-root-frame-v3",
+  "purpose": "Compare instruction variants with outcome-focused briefs rather than prompts that restate the implementation recipe.",
+  "evals": [
+    {
+      "name": "create",
+      "prompt": "Use custom-vercodable to implement Sample in the supplied crate. This is a new compact format, not a byte-compatible replacement for derives. Keep the public model unchanged except hash derives; Point and Entry remain inlined without their own codecs. The wire choices are one u32 LE total length, VerCode primitive/option/count encodings, declaration order within each global pass, and the introduction versions in the model comments. Preserve requested-version behavior and default absent additions. Deliver compiling source, focused tests, durable maintenance instructions, and real-type change guards. Demonstrate historical and future-frame compatibility and the encoded-size advantage over equivalent derives. Report performance separately; do not claim unmeasured speedups.",
+      "decision_case_ids": [5, 6, 10, 11, 14]
+    },
+    {
+      "name": "update",
+      "prompt": "Use custom-vercodable to update the supplied post-bootstrap Packet codec. Add public Child.stamp: u64 in global pass 2 and Packet.note: String in pass 3, with zero and empty-string defaults. Encode note as a u64 byte length followed by UTF-8. Preserve all released bytes, version behavior, and the framing contract documented in the existing source. Keep Child inlined without a codec and historical.rs unchanged. Deliver compiling source, focused compatibility tests, durable maintenance instructions, and real-type change guards. Compare the base with the actual bincode 1.3.3 configuration it adopted. Report performance separately; do not claim unmeasured speedups.",
+      "decision_case_ids": [4, 7, 8, 9, 12, 13, 15]
+    }
+  ]
+}
