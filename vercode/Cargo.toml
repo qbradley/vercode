@@ -22,3 +22,7 @@ uuid = { workspace = true, features = ["v4", "serde"]}
 [[bench]]
 name = "vercode_bench"
 harness = false
+
+[[bench]]
+name = "wire_fields"
+harness = false

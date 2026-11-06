@@ -10,6 +10,10 @@ use std::num::{
 
 use uuid::Uuid;
 
+mod wire_field;
+
+pub use wire_field::{WireField, WirePrimitive};
+
 // Re-export the Vercode attribute macros
 pub use vercode_macros::{Vercode, VercodeEnumU8, VercodeEnumU16, VercodeTransparent};
 
@@ -676,11 +680,6 @@ macro_rules! impl_vercodable_bytes_nonzero_try_as {
 }
 
 impl_vercodable_bytes_try_as! {char, u32}
-impl_vercodable_bytes_try_as! {u8, u8}
-impl_vercodable_bytes_try_as! {u16, u16}
-impl_vercodable_bytes_try_as! {u32, u32}
-impl_vercodable_bytes_try_as! {u64, u64}
-impl_vercodable_bytes_try_as! {u128, u128}
 impl_vercodable_bytes_nonzero_try_as! {NonZeroU8, u8}
 impl_vercodable_bytes_nonzero_try_as! {NonZeroU16, u16}
 impl_vercodable_bytes_nonzero_try_as! {NonZeroU32, u32}
@@ -693,15 +692,8 @@ impl_vercodable_bytes_nonzero_try_as! {NonZeroI32, i32}
 impl_vercodable_bytes_nonzero_try_as! {NonZeroI64, i64}
 impl_vercodable_bytes_nonzero_try_as! {NonZeroI128, i128}
 impl_vercodable_bytes_nonzero_try_as! {NonZeroIsize, isize}
-impl_vercodable_bytes_try_as! {i8, i8}
-impl_vercodable_bytes_try_as! {i16, i16}
-impl_vercodable_bytes_try_as! {i32, i32}
-impl_vercodable_bytes_try_as! {i64, i64}
-impl_vercodable_bytes_try_as! {i128, i128}
 impl_vercodable_bytes_try_as! {f32, f32}
 impl_vercodable_bytes_try_as! {f64, f64}
-impl_vercodable_bytes_try_as! {usize, usize}
-impl_vercodable_bytes_try_as! {isize, isize}
 
 impl VerCodable for Uuid {
     const MAX_VERSION: u32 = 0;

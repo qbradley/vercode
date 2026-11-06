@@ -19,6 +19,44 @@ enum Event {
     Named { value: u32 },
 }
 
+#[test]
+fn derived_headers_preserve_fixed_bytes_on_unaligned_slices() {
+    fn check<T: VerCodable + std::fmt::Debug + PartialEq>(value: T, expected: &[u8]) {
+        let mut output = [0xa5; 32];
+        assert_eq!(
+            value.write_version(T::MAX_VERSION, &mut output[1..]),
+            Ok(expected.len())
+        );
+        assert_eq!(&output[1..1 + expected.len()], expected);
+        assert_eq!(output[0], 0xa5);
+        assert!(
+            output[1 + expected.len()..]
+                .iter()
+                .all(|byte| *byte == 0xa5)
+        );
+        assert_eq!(
+            T::read_version(T::MAX_VERSION, &output[1..]),
+            Ok((value, expected.len()))
+        );
+    }
+
+    check(Empty, &[4, 0, 0, 0]);
+    check(
+        Named { value: 0x1122_3344 },
+        &[8, 0, 0, 0, 0x44, 0x33, 0x22, 0x11],
+    );
+    check(Tuple(0x1122_3344), &[8, 0, 0, 0, 0x44, 0x33, 0x22, 0x11]);
+    check(Event::Unit, &[6, 0, 0, 0, 0, 0]);
+    check(
+        Event::Tuple(0x1122_3344),
+        &[10, 0, 0, 0, 1, 0, 0x44, 0x33, 0x22, 0x11],
+    );
+    check(
+        Event::Named { value: 0x1122_3344 },
+        &[10, 0, 0, 0, 2, 0, 0x44, 0x33, 0x22, 0x11],
+    );
+}
+
 fn check_frame<T: VerCodable + std::fmt::Debug + PartialEq>(value: T) {
     let bytes = serialize_to_vec(&value).unwrap();
     for end in 0..bytes.len() {

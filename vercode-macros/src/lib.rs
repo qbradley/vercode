@@ -429,14 +429,18 @@ impl<'a> VariantInfo<'a> {
     }
 
     /// Generate write arm for this variant
-    fn write_arm(&self, enum_name: &syn::Ident) -> proc_macro2::TokenStream {
+    fn write_arm(
+        &self,
+        enum_name: &syn::Ident,
+        tag_field: &proc_macro2::TokenStream,
+    ) -> proc_macro2::TokenStream {
         let index = self.index;
         let pattern = self.match_pattern(enum_name);
         let field_writes = generate_variant_field_writes(&self.batches);
 
         quote! {
             #pattern => {
-                buf[offset..offset+2].copy_from_slice(&#index.to_le_bytes());
+                #tag_field.write(buf, #index)?;
                 offset += 2;
                 #field_writes
             }
@@ -664,6 +668,9 @@ fn derive_struct(
     let sizes = generate_field_sizes(&batches, is_named)?;
     let reads = generate_field_reads(&batches);
     let construction = generate_struct_construction(name, fields, &field_infos);
+    let length_field = quote! {
+        ::vercode::WireField::<::core::primitive::u32, 0>::new()
+    };
 
     let expanded = quote! {
         impl #impl_generics ::vercode::VerCodable for #name #ty_generics #where_clause {
@@ -678,18 +685,13 @@ fn derive_struct(
                 #writes
                 let length = ::core::primitive::u32::try_from(offset)
                     .map_err(|_| ::vercode::InvalidEncoding)?;
-                buf[..4].copy_from_slice(&length.to_le_bytes());
+                #length_field.write(buf, length)?;
                 Ok(offset)
             }
 
             #[inline(always)]
             fn read_version(version: u32, buf: &[u8]) -> ::std::result::Result<(Self, usize), ::vercode::InvalidEncoding> {
-                let prefix: [u8; 4] = buf
-                    .get(..4)
-                    .ok_or(::vercode::InvalidEncoding)?
-                    .try_into()
-                    .map_err(|_| ::vercode::InvalidEncoding)?;
-                let length = u32::from_le_bytes(prefix) as usize;
+                let length = #length_field.read(buf)? as usize;
                 if length < 4 { return Err(::vercode::InvalidEncoding); }
                 let buf = buf.get(..length).ok_or(::vercode::InvalidEncoding)?;
                 let mut offset = 4usize;
@@ -746,8 +748,18 @@ fn derive_enum(
         }
     };
 
+    let length_field = quote! {
+        ::vercode::WireField::<::core::primitive::u32, 0>::new()
+    };
+    let tag_field = quote! {
+        ::vercode::WireField::<::core::primitive::u16, 4>::new()
+    };
+
     // Generate match arms using the processed variant info
-    let write_arms: Vec<_> = variant_infos.iter().map(|v| v.write_arm(name)).collect();
+    let write_arms: Vec<_> = variant_infos
+        .iter()
+        .map(|v| v.write_arm(name, &tag_field))
+        .collect();
     let size_arms: Vec<_> = variant_infos.iter().map(|v| v.size_arm(name)).collect();
     let read_arms: Vec<_> = variant_infos.iter().map(|v| v.read_arm(name)).collect();
 
@@ -766,26 +778,16 @@ fn derive_enum(
                 }
                 let length = ::core::primitive::u32::try_from(offset)
                     .map_err(|_| ::vercode::InvalidEncoding)?;
-                buf[..4].copy_from_slice(&length.to_le_bytes());
+                #length_field.write(buf, length)?;
                 Ok(offset)
             }
 
             #[inline(always)]
             fn read_version(version: u32, buf: &[u8]) -> ::std::result::Result<(Self, usize), ::vercode::InvalidEncoding> {
-                let prefix: [u8; 4] = buf
-                    .get(..4)
-                    .ok_or(::vercode::InvalidEncoding)?
-                    .try_into()
-                    .map_err(|_| ::vercode::InvalidEncoding)?;
-                let length = u32::from_le_bytes(prefix) as usize;
+                let length = #length_field.read(buf)? as usize;
                 if length < 6 { return Err(::vercode::InvalidEncoding); }
                 let buf = buf.get(..length).ok_or(::vercode::InvalidEncoding)?;
-                let tag: [u8; 2] = buf
-                    .get(4..6)
-                    .ok_or(::vercode::InvalidEncoding)?
-                    .try_into()
-                    .map_err(|_| ::vercode::InvalidEncoding)?;
-                let discriminant = u16::from_le_bytes(tag);
+                let discriminant = #tag_field.read(buf)?;
                 let mut offset = 6usize;
 
                 let result = match discriminant {

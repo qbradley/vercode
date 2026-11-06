@@ -20,8 +20,49 @@ The [revision](https://docs.rs/revision/latest/revision/) crate addresses simila
 Add to your `Cargo.toml`:
 ```toml
 [dependencies]
-vercode = { version = "0.6" }
+vercode = { version = "0.8" }
 ```
+
+Version 0.8.0 is unreleased. Until publication, use a path dependency to this checkout instead.
+
+## Typed fixed-offset fields (unreleased 0.8.0)
+
+`WireField<T, OFFSET>` shares named integer fields between handwritten read and write paths.
+Offsets are relative to the supplied slice.
+The sealed `WirePrimitive` trait handles integer width and little-endian conversion.
+`usize` and `isize` retain target width.
+
+Reads and writes support unaligned buffers.
+Short buffers and overflowing offsets return `InvalidEncoding`.
+Failed field writes leave the buffer unchanged.
+The enclosing codec still owns framing, versions, domain validation, and total consumption.
+See the [public interface and example](vercode/src/wire_field.rs).
+This helper requires the unreleased 0.8.0 checkout, not the 0.7.0 interface.
+
+Derived structs and enums use `WireField` for their root lengths and enum tags.
+Integer `VerCodable` implementations share the `WirePrimitive` conversions.
+Other fields retain their existing codecs, including validity checks and option representations.
+The wire format and full-frame consumption rules do not change.
+
+The runtime pins `vercode-macros` to `=0.8.0` because generated code requires its matching interface.
+The new release line prevents older 0.7 runtimes from selecting macros that require `WireField`.
+These versions are unreleased.
+
+The paired benchmark compares manual offsets with checked typed fields in the same release binary:
+
+```sh
+WIRE_FIELD_BENCH_ITERATIONS=20000000 cargo bench -p vercode --bench wire_fields -- --measure
+```
+
+It covers a 24-byte run and a nested array with 128 historical checksum frames.
+The gate permits at most 5% median overhead for each write, owned-read, and size workload.
+It reports nine alternating pairs with all raw timings.
+Both paths use the same buffers and a shared indirect-call timing loop.
+Timings include that shared dispatch cost.
+`WIRE_FIELD_BENCH_ITERATIONS` sets the operations per sample (default: one million).
+If short samples vary, retain those results before collecting longer CPU-pinned samples.
+Runs without `--measure` perform behavior checks only.
+These workloads assess helper cost, not a universal speedup or end-to-end application performance.
 
 ## Serialization errors in 0.6
 
